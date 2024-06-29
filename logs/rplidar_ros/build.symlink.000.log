@@ -1,0 +1,5 @@
+Symlinking /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/rplidar_ros/cmake/rplidar_rosConfig-version.cmake
+Symlinking /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/rplidar_ros/cmake/rplidar_rosConfig.cmake
+Symlinking /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/pkgconfig/rplidar_ros.pc
+Symlinking /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/rplidar_ros/rplidarNode
+Symlinking /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/rplidar_ros/rplidarNodeClient

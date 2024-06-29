@@ -1,0 +1,8 @@
+prefix=/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/rplidar_ros
+
+Name: rplidar_ros
+Description: Description of rplidar_ros
+Version: 2.1.5
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

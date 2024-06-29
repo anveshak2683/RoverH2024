@@ -1,0 +1,5 @@
+arm2
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/arm/cmake.lock /media/nvidia/galileo/home/nvidia/galileo2024/devel/./cmake.lock
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/arm/share/arm/cmake/armConfig.cmake /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/arm/cmake/armConfig.cmake
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/arm/share/arm/cmake/armConfig-version.cmake /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/arm/cmake/armConfig-version.cmake
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/arm/lib/pkgconfig/arm.pc /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/pkgconfig/arm.pc

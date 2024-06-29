@@ -1,0 +1,8 @@
+prefix=/media/nvidia/galileo/home/nvidia/galileo2024/install
+
+Name: traversal2
+Description: Description of traversal2
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

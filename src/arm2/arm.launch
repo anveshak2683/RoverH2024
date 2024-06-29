@@ -1,0 +1,7 @@
+<launch>
+    <node name="joy_arm" pkg="joy" type="joy_node">
+         <param name="dev" type="string" value="/dev/input/js0" />
+         <remap from="joy" to="joy_arm"/>
+    </node>
+    <node name="arm_drive" pkg="arm" type="run.py"/>
+</launch>

@@ -1,0 +1,6 @@
+devel_space: /media/nvidia/galileo/home/nvidia/galileo2024/devel
+install: false
+install_space: /media/nvidia/galileo/home/nvidia/galileo2024/install
+profile: default
+source_space: /media/nvidia/galileo/home/nvidia/galileo2024/src
+workspace: /media/nvidia/galileo/home/nvidia/galileo2024

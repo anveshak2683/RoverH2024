@@ -1,0 +1,2 @@
+set(navigation2_MESSAGE_FILES "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Goal.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Planner_state.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Enc_dist.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg")
+set(navigation2_SERVICE_FILES "")

@@ -1,0 +1,1 @@
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/navigation2-msg.asd
