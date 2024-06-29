@@ -1,0 +1,8 @@
+prefix=/media/nvidia/galileo/home/nvidia/galileo2024/install
+
+Name: IK
+Description: Description of IK
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
