@@ -15,6 +15,6 @@ All Traversal Codes for both IRoC and ARC Rover
 
 * iroc_drive_tanish.py: Foxglove code; Joystick subscribing is different, i.e. the callback continues even if no commands are given, and axes are different. Use this if Foxglove GUI is used for joystick control. 
 
-* which_wheel.py: This code was made to check which index of motor_pwm corresponds to which drive/steering motor, mostly to play around with the speed of any individual motor. Used to debug individual motor failures and calibrate speeds. 
+* **which_wheel.py**: This code was made to check which index of motor_pwm corresponds to which drive/steering motor, mostly to play around with the speed of any individual motor. Used to debug individual motor failures and calibrate speeds. 
 Do not pay any attention to the joystick axes or to the sign of the published integers, just check which axis of motor_pwm has a number when a certain wheel moves (written by Amogh, used code written by Pranav)
 
