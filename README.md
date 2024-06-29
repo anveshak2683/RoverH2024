@@ -9,8 +9,8 @@ This codebase would contain the latest code for running the rover both manually 
 The code is divided into:
 * Traversal ([/src/traversal2/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/traversal2/scripts))
 * Navigation ([/src/navigation2/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/navigation2/scripts)))
-* Arm ([/src/arm2/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/arm2/scripts)) 
-* IK ([/src/IK/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/IK/scripts))
+* Arm ([/src/arm2/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/arm2/)) 
+* IK ([/src/IK/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/IK/))
 
 Tokens
 ------
