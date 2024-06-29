@@ -41,6 +41,9 @@ class Aruco_detection():
         # config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
         # config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
         # self.pipeline.start(config)
+        
+
+        self.distance = 100 #random default distance, was undeclared before. 
 
         self.distance_list = []
         self.initial_yaw = 0.0
@@ -147,9 +150,8 @@ class Aruco_detection():
         intrinsic_camera=np.array(((607.7380981445312, 0.0, 325.2829284667969),(0.0, 606.8139038085938, 238.5009307861328),(0,0,1.0)))
         distortion=np.array((0.0, 0.0, 0.0, 0.0, 0.0))
         
-        img = color_image
-        print(img.shape)
-        ret, output, ids, depth_array = self.pose_estimation(img, depth_image, intrinsic_camera, distortion)        #returns a list of two entities at all times
+        print(color_image.shape)
+        ret, output, ids, depth_array = self.pose_estimation(color_image, depth_image, intrinsic_camera, distortion)        #returns a list of two entities at all times
         depth_array.sort()
         depth_array.remove(0.0)
         if len(depth_array)>=2:                                  #filters used are minimum distance and not zero(if something else pops up during testing, add here)
@@ -219,13 +221,12 @@ class Aruco_detection():
         model = YOLO("./weights/best.pt")
 #        self.color_image 
         depth_frame = self.depth_image
-        img = self.color_image 
         ret = False
         print("img shape", np.shape(self.color_image))
-        results = model.predict(img, conf = 0.4, max_det = 3)
+        results = model.predict(self.color_image, conf = 0.4, max_det = 3)
         depth_array = []
         for r in results:
-            annotator = Annotator(img)
+            annotator = Annotator(self.color_image)
             boxes = r.boxes
             for box in boxes:
                 ret  = True
@@ -244,14 +245,19 @@ class Aruco_detection():
                         print("Depth for box" + str(b) + ":" + str(depth_array[-1]) +"meters")
                 except:
                     ret = False
-                
         if len(depth_array)>=2:
             depth_array = [depth_array[0], depth_array[1]] #min distance
         elif len(depth_array)==1:
             depth_array = [depth_array[0], None]
         else:
             depth_array = [None, None]
+
+        cv2.imshow("Image", self.color_image)      
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q'):
+            return
         return ret, depth_array
+
         
     
     def search(self):
@@ -283,8 +289,8 @@ class Aruco_detection():
         self.pub.publish(msg)
 
         print("Entered while loop.")
-        #mini = time.time()
-        while self.init == False and abs(self.enc_data) < abs(self.start_angle)-2*self.angle_thresh:
+        mini = time.time()
+        while (self.init == False and abs(self.enc_data) < abs(self.start_angle)-2*self.angle_thresh):
             #to make the realsense go to the 60 degree maximum before starting the burst search
 
             msg.data = [0,255,0,0,0,0]
@@ -292,8 +298,8 @@ class Aruco_detection():
             rate.sleep()
             self.pub.publish(msg)
             self.start_time = time.time() - 4  
-            #if time.time() - mini >4:
-                #break
+            if time.time() - mini >4:
+                break
         msg.data = [0,0,0,0,0,0]
         print ("Exited while loop.")
 
