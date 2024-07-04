@@ -11,5 +11,6 @@ export CMAKE_PREFIX_PATH="/media/nvidia/galileo/home/nvidia/galileo2024/devel/.p
 export LD_LIBRARY_PATH="/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2'
+export PYTHONPATH="/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2:$ROS_PACKAGE_PATH"

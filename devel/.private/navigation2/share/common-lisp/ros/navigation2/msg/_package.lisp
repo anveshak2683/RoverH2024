@@ -7,6 +7,8 @@
    "GOAL"
    "<PLANNER_STATE>"
    "PLANNER_STATE"
+   "<AUTO>"
+   "AUTO"
    "<ENC_FEED>"
    "ENC_FEED"
    "<GPS_DATA>"

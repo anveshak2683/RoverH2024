@@ -49,7 +49,7 @@ class Aruco_detection():
         self.initial_yaw = 0.0
         self.where_am_i = None
         self.enc_data = 0
-        self.start_angle = 60
+        self.start_angle = 45
         self.start_angle_1 = 90
         self.start_time = time.time()
         self.angles_dict = defaultdict(list)
@@ -76,7 +76,7 @@ class Aruco_detection():
             print("1")
             rospy.Subscriber('chatter',std_msgs.Float32,self.yaw_callback)
             print("2")
-            rospy.Subscriber('enc_wheel_odom',std_msgs.Int8,self.enc_callback)
+            rospy.Subscriber('enc_base',std_msgs.Float32MultiArray,self.enc_callback)
             print("3")  
             rospy.Subscriber('gps_coordinates', gps_data, self.gps_callback)
             print("4")
@@ -200,16 +200,27 @@ class Aruco_detection():
                     angle_to_turn = (180-a[0][0])*(-1)
                     print("Angle to Rotate: ",(180-a[0][0])*(-1))
 
-                
-                depth_array = depth_frame[(corners[0][0]+corners[1][0]+corners[2][0]+corners[3][0])/4,(corners[0][1]+corners[1][1]+corners[2][1]+corners[3][1])/4]
-                
+                print("shape of depth_frame", np.shape(depth_frame))
+                #print("corners", corners[0][0]+corners[1][0]+corners[2][0]+corners[3][0])//4, (corners[0][1]+corners[1][1]+corners[2][1]+corners[3][1])//4))
+                print("corners",np.shape(corners))
+                x00=corners[0][0]
+                x01=corners[0][1]
+                x02 = corners[0][2]
+                x03=corners[0][3]
+                x10 = corners[1][0]
+                x21=corners[1][1]
+                x31 = corners[1][2]
+                x41 = corners[1][3]
+
+                #depth_array = depth_frame[(int(corners[0][0])+int(corners[1][0])+int(corners[2][0])+int(corners[3][0]))//4,(int(corners[0][1])+int(corners[1][1])+int(corners[2][1])+int(corners[3][1])//4)]
+                depth_array = depth_frame[(x00+x01+x02+x03)//4, (x10+x21+x31+x41)//4]
             '''
             if depth<=1.5:
                 rotate_angle = 90 - angle_to_turn
             '''
         return ret, frame, ids, depth_array
 
-    def rotation_vector_to_euler_angles(rvec,tvec):
+    def rotation_vector_to_euler_angles(self,rvec,tvec):
         # Convert rotation vector to rotation matrix
         rotation_mat, _ = cv2.Rodrigues(rvec)
         pose_mat = cv2.hconcat((rotation_mat, tvec))
@@ -223,7 +234,7 @@ class Aruco_detection():
         depth_frame = self.depth_image
         ret = False
         print("img shape", np.shape(self.color_image))
-        results = model.predict(self.color_image, conf = 0.4, max_det = 3)
+        results = model.predict(self.color_image, conf = 0.55, max_det = 3)
         depth_array = []
         for r in results:
             annotator = Annotator(self.color_image)
@@ -289,7 +300,7 @@ class Aruco_detection():
         self.pub.publish(msg)
 
         print("Entered while loop.")
-        mini = time.time()
+        #mini = time.time()
         while (self.init == False and abs(self.enc_data) < abs(self.start_angle)-2*self.angle_thresh):
             #to make the realsense go to the 60 degree maximum before starting the burst search
 
@@ -298,8 +309,8 @@ class Aruco_detection():
             rate.sleep()
             self.pub.publish(msg)
             self.start_time = time.time() - 4  
-            if time.time() - mini >4:
-                break
+            #if time.time() - mini >4:
+                #break
         msg.data = [0,0,0,0,0,0]
         print ("Exited while loop.")
 
@@ -548,7 +559,7 @@ class Aruco_detection():
         self.z_angle = msg.data
 
     def enc_callback(self,msg):
-        self.enc_data = msg.data
+        self.enc_data = msg.data[0]
 
     def gps_callback(self,msg):
         if(msg.latitude and  msg.longitude):
@@ -615,7 +626,7 @@ if __name__ == '__main__':
     try:
         rospy.init_node("aruco_detection_arc")
         rate = rospy.Rate(10)
-        wheelrpm_pub=rospy.Publisher('motion',WheelRpm,queue_size=10)
+        wheelrpm_pub=rospy.Publisher('motion1',WheelRpm,queue_size=10)
         gps_data_pub = rospy.Publisher('gps_bool',std_msgs.Int8,queue_size=10)
         crab_motion_pub = rospy.Publisher('crab_bool', std_msgs.Int8, queue_size=10)
         run = Aruco_detection()

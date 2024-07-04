@@ -72,6 +72,7 @@ CMakeFiles/navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/g
 CMakeFiles/navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_gps_data.py
 CMakeFiles/navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_enc_feed.py
 CMakeFiles/navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_imu_angle.py
+CMakeFiles/navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_auto.py
 CMakeFiles/navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/__init__.py
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_Enc_dist.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
@@ -96,22 +97,28 @@ CMakeFiles/navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/g
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/__init__.py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_gps_data.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/__init__.py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_enc_feed.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/__init__.py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_imu_angle.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/__init__.py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_auto.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for navigation2"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg --initpy
 
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_auto.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_auto.py: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG navigation2/auto"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg
+
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_enc_feed.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_enc_feed.py: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG navigation2/enc_feed"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG navigation2/enc_feed"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_gps_data.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_gps_data.py: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python from MSG navigation2/gps_data"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python from MSG navigation2/gps_data"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_imu_angle.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_imu_angle.py: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python from MSG navigation2/imu_angle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python from MSG navigation2/imu_angle"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg
 
 navigation2_generate_messages_py: CMakeFiles/navigation2_generate_messages_py
@@ -119,6 +126,7 @@ navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/
 navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_Goal.py
 navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_Planner_state.py
 navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/__init__.py
+navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_auto.py
 navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_enc_feed.py
 navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_gps_data.py
 navigation2_generate_messages_py: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_imu_angle.py

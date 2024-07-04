@@ -99,6 +99,7 @@ clean: CMakeFiles/_navigation2_generate_messages_check_deps_Enc_dist.dir/clean
 clean: CMakeFiles/_navigation2_generate_messages_check_deps_gps_data.dir/clean
 clean: CMakeFiles/_navigation2_generate_messages_check_deps_enc_feed.dir/clean
 clean: CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/clean
+clean: CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/clean
 clean: CMakeFiles/navigation2_generate_messages_cpp.dir/clean
 clean: CMakeFiles/navigation2_gencpp.dir/clean
 clean: CMakeFiles/navigation2_generate_messages_eus.dir/clean
@@ -696,7 +697,7 @@ CMakeFiles/navigation2_generate_messages.dir/all: CMakeFiles/navigation2_generat
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 37
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_generate_messages.dir/rule
@@ -867,6 +868,32 @@ CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/clean:
 .PHONY : CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir
+
+# All Build rule for target.
+CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/build.make CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/build.make CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num= "Built target _navigation2_generate_messages_check_deps_auto"
+.PHONY : CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
+.PHONY : CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/rule
+
+# Convenience name for target.
+_navigation2_generate_messages_check_deps_auto: CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/rule
+.PHONY : _navigation2_generate_messages_check_deps_auto
+
+# clean rule for target.
+CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/build.make CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/clean
+.PHONY : CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/navigation2_generate_messages_cpp.dir
 
 # All Build rule for target.
@@ -877,14 +904,15 @@ CMakeFiles/navigation2_generate_messages_cpp.dir/all: CMakeFiles/_navigation2_ge
 CMakeFiles/navigation2_generate_messages_cpp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_gps_data.dir/all
 CMakeFiles/navigation2_generate_messages_cpp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_enc_feed.dir/all
 CMakeFiles/navigation2_generate_messages_cpp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/all
+CMakeFiles/navigation2_generate_messages_cpp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_cpp.dir/build.make CMakeFiles/navigation2_generate_messages_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_cpp.dir/build.make CMakeFiles/navigation2_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=9,10,11,12,13,14 "Built target navigation2_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=9,10,11,12,13,14,15 "Built target navigation2_generate_messages_cpp"
 .PHONY : CMakeFiles/navigation2_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_generate_messages_cpp.dir/rule
@@ -910,7 +938,7 @@ CMakeFiles/navigation2_gencpp.dir/all: CMakeFiles/navigation2_generate_messages_
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_gencpp.dir/rule
@@ -935,14 +963,15 @@ CMakeFiles/navigation2_generate_messages_eus.dir/all: CMakeFiles/_navigation2_ge
 CMakeFiles/navigation2_generate_messages_eus.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_gps_data.dir/all
 CMakeFiles/navigation2_generate_messages_eus.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_enc_feed.dir/all
 CMakeFiles/navigation2_generate_messages_eus.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/all
+CMakeFiles/navigation2_generate_messages_eus.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_eus.dir/build.make CMakeFiles/navigation2_generate_messages_eus.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_eus.dir/build.make CMakeFiles/navigation2_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=15,16,17,18,19,20,21 "Built target navigation2_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=16,17,18,19,20,21,22,23 "Built target navigation2_generate_messages_eus"
 .PHONY : CMakeFiles/navigation2_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_generate_messages_eus.dir/rule
@@ -968,7 +997,7 @@ CMakeFiles/navigation2_geneus.dir/all: CMakeFiles/navigation2_generate_messages_
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_geneus.dir/rule
@@ -993,14 +1022,15 @@ CMakeFiles/navigation2_generate_messages_lisp.dir/all: CMakeFiles/_navigation2_g
 CMakeFiles/navigation2_generate_messages_lisp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_gps_data.dir/all
 CMakeFiles/navigation2_generate_messages_lisp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_enc_feed.dir/all
 CMakeFiles/navigation2_generate_messages_lisp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/all
+CMakeFiles/navigation2_generate_messages_lisp.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_lisp.dir/build.make CMakeFiles/navigation2_generate_messages_lisp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_lisp.dir/build.make CMakeFiles/navigation2_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=22,23,24,25,26,27 "Built target navigation2_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=24,25,26,27,28,29,30 "Built target navigation2_generate_messages_lisp"
 .PHONY : CMakeFiles/navigation2_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_generate_messages_lisp.dir/rule
@@ -1026,7 +1056,7 @@ CMakeFiles/navigation2_genlisp.dir/all: CMakeFiles/navigation2_generate_messages
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_genlisp.dir/rule
@@ -1051,14 +1081,15 @@ CMakeFiles/navigation2_generate_messages_nodejs.dir/all: CMakeFiles/_navigation2
 CMakeFiles/navigation2_generate_messages_nodejs.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_gps_data.dir/all
 CMakeFiles/navigation2_generate_messages_nodejs.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_enc_feed.dir/all
 CMakeFiles/navigation2_generate_messages_nodejs.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/all
+CMakeFiles/navigation2_generate_messages_nodejs.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_nodejs.dir/build.make CMakeFiles/navigation2_generate_messages_nodejs.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_nodejs.dir/build.make CMakeFiles/navigation2_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=28,29,30,31,32,33 "Built target navigation2_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=31,32,33,34,35,36,37 "Built target navigation2_generate_messages_nodejs"
 .PHONY : CMakeFiles/navigation2_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_generate_messages_nodejs.dir/rule
@@ -1084,7 +1115,7 @@ CMakeFiles/navigation2_gennodejs.dir/all: CMakeFiles/navigation2_generate_messag
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_gennodejs.dir/rule
@@ -1109,14 +1140,15 @@ CMakeFiles/navigation2_generate_messages_py.dir/all: CMakeFiles/_navigation2_gen
 CMakeFiles/navigation2_generate_messages_py.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_gps_data.dir/all
 CMakeFiles/navigation2_generate_messages_py.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_enc_feed.dir/all
 CMakeFiles/navigation2_generate_messages_py.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/all
+CMakeFiles/navigation2_generate_messages_py.dir/all: CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_py.dir/build.make CMakeFiles/navigation2_generate_messages_py.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/navigation2_generate_messages_py.dir/build.make CMakeFiles/navigation2_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=34,35,36,37,38,39,40 "Built target navigation2_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=38,39,40,41,42,43,44,45 "Built target navigation2_generate_messages_py"
 .PHONY : CMakeFiles/navigation2_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_generate_messages_py.dir/rule
@@ -1142,7 +1174,7 @@ CMakeFiles/navigation2_genpy.dir/all: CMakeFiles/navigation2_generate_messages_p
 
 # Build rule for subdir invocation for target.
 CMakeFiles/navigation2_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/navigation2_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles 0
 .PHONY : CMakeFiles/navigation2_genpy.dir/rule

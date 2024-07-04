@@ -56,6 +56,7 @@ find_package(catkin REQUIRED COMPONENTS
    gps_data.msg
    enc_feed.msg
    imu_angle.msg
+   auto.msg
  )
 
 ## Generate services in the 'srv' folder

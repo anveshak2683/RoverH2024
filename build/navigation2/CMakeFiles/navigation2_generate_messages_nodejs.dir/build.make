@@ -72,6 +72,7 @@ CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvid
 CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/gps_data.js
 CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/enc_feed.js
 CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/imu_angle.js
+CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/auto.js
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Enc_dist.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Enc_dist.js: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Enc_dist.msg
@@ -88,25 +89,31 @@ CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvid
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from navigation2/Planner_state.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Planner_state.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg
 
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/auto.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/auto.js: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from navigation2/auto.msg"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg
+
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/enc_feed.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/enc_feed.js: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from navigation2/enc_feed.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from navigation2/enc_feed.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/gps_data.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/gps_data.js: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from navigation2/gps_data.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from navigation2/gps_data.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/imu_angle.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/imu_angle.js: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from navigation2/imu_angle.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from navigation2/imu_angle.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg
 
 navigation2_generate_messages_nodejs: CMakeFiles/navigation2_generate_messages_nodejs
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Enc_dist.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Goal.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Planner_state.js
+navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/auto.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/enc_feed.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/gps_data.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/imu_angle.js

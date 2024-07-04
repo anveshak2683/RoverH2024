@@ -114,7 +114,7 @@ class Lidar_Detection():
         left_check_sum = 0
         right_check_sum = 0
         print("check1")
-        data.ranges = np.nan_to_num(data.ranges, copy = True, nan = 0.8, posinf = 0.8, neginf = 1000)
+        data.ranges = np.nan_to_num(data.ranges, copy = True, nan = 0.8, posinf = 1000, neginf = 1000)
         print(f"Left Points :{data.ranges[left_num:left_num+30]}, Right Points: {data.ranges[right_num:right_num+30]}")
         for i in range(100):
             #if not np.isnan(data.ranges[left_num+i]):
@@ -240,12 +240,12 @@ class Lidar_Detection():
 
     def main(self):
         twist = WheelRpm()                         ## moving rover ahead through the tunnel while assuring that it doesnt hit the walls.
-        twist.vel = 40
+        twist.vel = 20
         safety_distance=0.8
         if self.left_check <= safety_distance:
-            twist.omega = -40
+            twist.omega = -20
         if self.right_check<=safety_distance:
-            twist.omega = 40
+            twist.omega = 20
         self.pub.publish(twist)                ##
         print("self.odom", self.odom_self)
         

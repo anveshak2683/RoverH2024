@@ -8,6 +8,7 @@ from std_msgs.msg import Float32
 from std_msgs.msg import Int32MultiArray, MultiArrayLayout, MultiArrayDimension, Float32MultiArray
 import queue
 from operator import add
+from navigation.msg import WheelRpm
 
 class Drive:
     def __init__(self):
@@ -16,7 +17,7 @@ class Drive:
         rospy.Subscriber("enc_auto", Float32MultiArray, self.enc_callback)
         self.pwm_pub = rospy.Publisher('motor_pwm', Int32MultiArray, queue_size = 10)
         self.control = ['joystick, autonomous']
-        
+        rospy.Subscriber('motion', WheelRpm, self.autonomous_callback)  
         self.pwm_msg = Int32MultiArray()
         self.pwm_msg.layout = MultiArrayLayout()
         self.pwm_msg.layout.data_offset = 0
@@ -79,21 +80,21 @@ class Drive:
         self.rotinplace = False
 
     def enc_callback(self,msg):
-        if(self.initial_value_received == False):
+#        if(self.initial_value_received == False):
+#            self.enc_data[0] = (msg.data)[0]
+#            self.enc_data[1] = (msg.data)[3]
+#            self.enc_data[2] = (msg.data)[1]
+#            self.enc_data[3] = (msg.data)[5]
+#            self.initial_enc_data[0] = (msg.data)[0]
+#            self.initial_enc_data[1] = (msg.data)[3]
+#            self.initial_enc_data[2] = (msg.data)[1]
+#            self.initial_enc_data[3] = (msg.data)[5]
+#            self.initial_value_received = True
+#        else:
             self.enc_data[0] = (msg.data)[0]
-            self.enc_data[1] = (msg.data)[3]
-            self.enc_data[2] = (msg.data)[2]
-            self.enc_data[3] = (msg.data)[5]
-            self.initial_enc_data[0] = (msg.data)[0]
-            self.initial_enc_data[1] = (msg.data)[3]
-            self.initial_enc_data[2] = (msg.data)[2]
-            self.initial_enc_data[3] = (msg.data)[5]
-            self.initial_value_received = True
-        else:
-            self.enc_data[0] = (msg.data)[0] - self.initial_enc_data[0]
-            self.enc_data[1] = (msg.data)[3]- self.initial_enc_data[1] 
-            self.enc_data[2] = (msg.data)[2]- self.initial_enc_data[2] 
-            self.enc_data[3] = (msg.data)[5]- self.initial_enc_data[3] 
+            self.enc_data[1] = -(msg.data)[3] 
+            self.enc_data[2] = (msg.data)[1]
+            self.enc_data[3] = (msg.data)[5] 
             
 
     def joyCallback(self, msg):
@@ -178,6 +179,7 @@ class Drive:
                 temp = int(255*self.rot_with_pwm)
                 self.pwm_msg.data = [0,0,0,0,temp,-temp,-temp,temp]
                 print("Rotating in place with velocity =",temp)
+                print("Enc_angles:- ", self.enc_data)
 
             else:
                 self.pwm_msg.data = [0,0,0,0,0,0,0,0]
@@ -270,7 +272,7 @@ class Drive:
              
             if (self.rotinplace == True):
                 vel = self.d_arr[self.mode] * self.drive_ctrl[1]
-                self.pwm_msg.data = [-int(vel), int(vel),- int(vel), int(vel), 0,0,0,0]
+                self.pwm_msg.data = [int(vel), int(vel),int(vel), int(vel), 0,0,0,0]
                 if (self.print_ctrl == 0):    #printing only at certain intervals, to prevent the screen from being filed with data   #print_ctrl is being incremented in main() every time
                     print("Rotation speed =", int(vel))
             else:

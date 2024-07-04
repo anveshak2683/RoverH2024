@@ -1,0 +1,5 @@
+inverse_kinematics
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/inverse_kinematics/cmake.lock /media/nvidia/galileo/home/nvidia/galileo2024/devel/./cmake.lock
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/inverse_kinematics/share/inverse_kinematics/cmake/inverse_kinematicsConfig-version.cmake /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/inverse_kinematics/cmake/inverse_kinematicsConfig-version.cmake
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/inverse_kinematics/share/inverse_kinematics/cmake/inverse_kinematicsConfig.cmake /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/inverse_kinematics/cmake/inverse_kinematicsConfig.cmake
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/inverse_kinematics/lib/pkgconfig/inverse_kinematics.pc /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/pkgconfig/inverse_kinematics.pc

@@ -22,7 +22,7 @@ class Node:
 
         #Yukteshwar
         outbuff[0] =  - axes[1]
-        outbuff[1] =  - axes[0]
+        outbuff[1] = axes[0]
         outbuff[2] = -buttons[1] + buttons[0]
         outbuff[3] = -axes[3]
         outbuff[4] = -axes[2]

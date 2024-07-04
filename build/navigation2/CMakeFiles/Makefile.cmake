@@ -251,6 +251,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/_navigation2_generate_messages_check_deps_gps_data.dir/DependInfo.cmake"
   "CMakeFiles/_navigation2_generate_messages_check_deps_enc_feed.dir/DependInfo.cmake"
   "CMakeFiles/_navigation2_generate_messages_check_deps_imu_angle.dir/DependInfo.cmake"
+  "CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/DependInfo.cmake"
   "CMakeFiles/navigation2_generate_messages_cpp.dir/DependInfo.cmake"
   "CMakeFiles/navigation2_gencpp.dir/DependInfo.cmake"
   "CMakeFiles/navigation2_generate_messages_eus.dir/DependInfo.cmake"

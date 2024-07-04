@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = r'/home/nvidia/iroc/devel;/media/nvidia/galileo/home/nvidia/catkin_ws/devel;/home/nvidia/catkin_ws/devel;/home/nvidia/caesar2020/devel;/opt/ros/noetic'.split(';')
+            CMAKE_PREFIX_PATH = r'/home/nvidia/galileo2024/devel;/home/nvidia/iroc/devel;/media/nvidia/galileo/home/nvidia/catkin_ws/devel;/home/nvidia/catkin_ws/devel;/home/nvidia/caesar2020/devel;/opt/ros/noetic'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

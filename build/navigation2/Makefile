@@ -523,6 +523,19 @@ _navigation2_generate_messages_check_deps_imu_angle/fast:
 .PHONY : _navigation2_generate_messages_check_deps_imu_angle/fast
 
 #=============================================================================
+# Target rules for targets named _navigation2_generate_messages_check_deps_auto
+
+# Build rule for target.
+_navigation2_generate_messages_check_deps_auto: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _navigation2_generate_messages_check_deps_auto
+.PHONY : _navigation2_generate_messages_check_deps_auto
+
+# fast build rule for target.
+_navigation2_generate_messages_check_deps_auto/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/build.make CMakeFiles/_navigation2_generate_messages_check_deps_auto.dir/build
+.PHONY : _navigation2_generate_messages_check_deps_auto/fast
+
+#=============================================================================
 # Target rules for targets named navigation2_generate_messages_cpp
 
 # Build rule for target.
@@ -720,6 +733,7 @@ help:
 	@echo "... _navigation2_generate_messages_check_deps_Enc_dist"
 	@echo "... _navigation2_generate_messages_check_deps_Goal"
 	@echo "... _navigation2_generate_messages_check_deps_Planner_state"
+	@echo "... _navigation2_generate_messages_check_deps_auto"
 	@echo "... _navigation2_generate_messages_check_deps_enc_feed"
 	@echo "... _navigation2_generate_messages_check_deps_gps_data"
 	@echo "... _navigation2_generate_messages_check_deps_imu_angle"

@@ -1,4 +1,4 @@
-	#!/usr/bin/env python3
+#!/usr/bin/env python3
 
 import sys
 import rospy
@@ -45,15 +45,15 @@ class habibo():
         self.odom_initialized = False
 
         self.model = YOLO(
-            "/home/nvidia/galileo2024/src/traversal2/scripts/model.pt")
+            "/home/nvidia/galileo2024/src/navigation2/scripts/model.pt")
         self.cv_image = []
         self.current_pitch = self.current_roll = self.current_yaw = 0.0	
         self.initial_pitch = self.initial_roll = self.initial_yaw = 0.0
         # get waypoint coordinates and put it in here
         #self.goals_x=[0.97,2.44,3.3,3.4,8.41]
         #self.goals_y=[0.97,-1.71,-1.9,-0.77,-3.0]
-        self.goals_x = [0.819, 2.74, 3.32, 8.05, 6.22]
-        self.goals_y = [1.11, 2.0, 0.83, 2.70, 1.68]
+        self.goals_x = [0.9, 2.25, 2.3, 5.8, 6.22]
+        self.goals_y = [1.18, 2.05, 1.6, 2.5, 1.55]
         # self.goals_x[2] = float(input("Enter the x1 coordinate: "))
         # self.goals_y[2] = float(input("Enter the y1 coordinate: "))
 
@@ -80,7 +80,7 @@ class habibo():
         self.pixel_dict = defaultdict(list)
         self.turn_completed = False  # to keep track of the initial turning
         self.obs_avd_completed = False
-        self.goal_counter =4
+        self.goal_counter =0
         self.kutty_obstacle = False
         self.ignore_everything = False
         self.p_l, self.p_r, self.p_u, self.p_d = 0, 0, 0, 0
@@ -92,7 +92,7 @@ class habibo():
         # self.velocity_pub = rospy.Publisher('motion',  WheelRpm, queue_size = 10)
         self.is_identified = False
         self.depth = None
-        self.ik_over_ah = 2
+        self.ik_over_ah = 0
 
         #  if err != sl.ERROR_CODE.SUCCESS:
         #     print(repr(err))
@@ -304,10 +304,9 @@ class habibo():
             print("self.omega", self.omega)
 
             if self.omega > 0:
-                g.omega = 20
+                g.omega = -20
             else:
                 g.omega = -20
-
         else:
             print("self.omega", self.omega)
             g.omega = 0
@@ -321,6 +320,7 @@ class habibo():
     def safe_obstacle_avoidance(self,l,r,d):
         g = WheelRpm()
         kp = 10
+
         kp_rot = 0.25
         self.snatch_control = True
         print("pixel_values_of_guiding_cube", (l+r)/2)
@@ -354,6 +354,7 @@ class habibo():
         self.font = cv2.FONT_HERSHEY_SIMPLEX
         self.font_scale = 0.5
         self.color = [255, 0, 0]
+#self.current_yaw - desired_turn 135.73556174915615
         self.thickness = 1
 
 
@@ -368,9 +369,11 @@ class habibo():
             #ik_pick_up =
             if ik_pick_up==1:
                 self.ik_over_ah+=1
-                for i in range(70):
+                mini1 = time.time()
+
+                while time.time()-mini1< 6: 
                     print("going back")
-                    g.vel = -10
+                    g.vel = -20
                     g.omega = 0
                     vel_pub.publish(g)
             else:
@@ -389,12 +392,13 @@ class habibo():
         elif self.goal_counter==4 and self.ik_over_ah==2:
             print("going backwards")
             g=WheelRpm()
-            g.vel=-15
+            g.vel=-20
             g.omega = 0
-            for i in range(100):
+            mini =time.time()
+            while time.time()- mini < 6:
                 vel_pub.publish(g)
                 rate.sleep()
-            if i >=99:
+            if time.time() - mini > 6:
                 g.vel = 0
                 g.omega = 0
                 vel_pub.publish(g)
@@ -443,6 +447,11 @@ class habibo():
 
             if self.obs_avd_completed == True:
                 print("self.obs_avd_completed", self.obs_avd_completed)
+                mini = time.time()
+                while time.time()-  mini <6:
+                    g.omega = -15
+                    g.vel = 0
+                    vel_pub.publish(g)
                 g.omega = 0
                 g.vel = 13
                 vel_pub.publish(g)
@@ -454,10 +463,10 @@ class habibo():
                 if abs(self.current_yaw - self.desired_angle_gtg) > 6:
                     print("self.omega gtg", self.omega)
                     if self.omega > 0:
-                        g.omega = int(max(10,int(min(kp_rot*(self.current_yaw - self.desired_angle_gtg), 20))))
+                        g.omega = int(max(15,int(min(kp_rot*(self.current_yaw - self.desired_angle_gtg), 20))))
                         g.vel = 0
                     else:
-                        g.omega = int(min(-10,int(max(kp_rot*(self.current_yaw - self.desired_angle_gtg), -20))))
+                        g.omega = int(min(-15,int(max(kp_rot*(self.current_yaw - self.desired_angle_gtg), -20))))
                         g.vel = 0
                 elif abs(self.current_yaw - self.desired_angle_gtg) < 6:
                     print("self.omega gtg", 0)

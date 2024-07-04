@@ -62,7 +62,7 @@ class Aruco_detection():
         self.ret = False
         self.init = False  #actually true, but for testing changed to false
         self.searchcalled = False #variable to control when and if to enter process_dict()
-
+        self.distance = 10.0
         self.turn = False
         self.state = True
         print("self.state", self.state)
@@ -164,6 +164,7 @@ class Aruco_detection():
         parameters = aruco.DetectorParameters()
         detector = cv2.aruco.ArucoDetector(self.aruco_dict,parameters)
         corners, ids, _ = detector.detectMarkers(gray)
+        print("corners in pose_estimation", pose_estimation)
         print(f"Pose Estimation Called, ids are {ids}")
         ret = False
         depth_array = []
@@ -206,7 +207,7 @@ class Aruco_detection():
             '''
         return ret, frame, ids, depth_array
 
-    def rotation_vector_to_euler_angles(rvec,tvec):
+    def rotation_vector_to_euler_angles(self,rvec,tvec):
         # Convert rotation vector to rotation matrix
         rotation_mat, _ = cv2.Rodrigues(rvec)
         pose_mat = cv2.hconcat((rotation_mat, tvec))
@@ -399,7 +400,7 @@ class Aruco_detection():
     def main(self):
         crab_motion_pub.publish(0)
         if (self.ret == False and self.turn == False) or self.init:
-            #self.search()
+            self.search()
             if self.searchcalled:
                 self.process_dict()
         if not self.turn:
@@ -501,7 +502,7 @@ class Aruco_detection():
             rospy.sleep(1)
         
         msg.omega=0
-
+        self.init= False
         if self.init or self.searchcalled:
             print("move_straight() is being ignored due to search().")
             print()

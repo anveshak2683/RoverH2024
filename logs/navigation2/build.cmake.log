@@ -20,8 +20,8 @@ Not searching for unused variables given on the command line.
 [36m--[0m Detecting CXX compile features
 [36m--[0m Detecting CXX compile features - done
 [36m--[0m Using CATKIN_DEVEL_PREFIX: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2
-[36m--[0m Using CMAKE_PREFIX_PATH: /media/nvidia/galileo/home/nvidia/galileo2024/devel;/home/nvidia/iroc/devel;/media/nvidia/galileo/home/nvidia/catkin_ws/devel;/home/nvidia/catkin_ws/devel;/home/nvidia/caesar2020/devel;/opt/ros/noetic
-[36m--[0m This workspace overlays: /media/nvidia/galileo/home/nvidia/galileo2024/devel;/home/nvidia/iroc/devel;/media/nvidia/galileo/home/nvidia/catkin_ws/devel;/home/nvidia/catkin_ws/devel;/home/nvidia/caesar2020/devel;/opt/ros/noetic
+[36m--[0m Using CMAKE_PREFIX_PATH: /media/nvidia/galileo/home/nvidia/galileo2024/devel;/home/nvidia/galileo2024/devel;/home/nvidia/iroc/devel;/media/nvidia/galileo/home/nvidia/catkin_ws/devel;/home/nvidia/catkin_ws/devel;/home/nvidia/caesar2020/devel;/opt/ros/noetic
+[36m--[0m This workspace overlays: /media/nvidia/galileo/home/nvidia/galileo2024/devel;/home/nvidia/galileo2024/devel;/home/nvidia/iroc/devel;/media/nvidia/galileo/home/nvidia/catkin_ws/devel;/home/nvidia/catkin_ws/devel;/home/nvidia/caesar2020/devel;/opt/ros/noetic
 [33mCMake Warning (dev) at /opt/ros/noetic/share/catkin/cmake/python.cmake:4 (find_package):
   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
@@ -82,6 +82,8 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 [36m--[0m Using Python nosetests: /usr/bin/nosetests3
 [36m--[0m catkin 0.8.10
 [36m--[0m BUILD_SHARED_LIBS is on
-[36m--[0m Configuring done (7.5s)
-[36m--[0m Generating done (0.1s)
+[36m--[0m Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+[36m--[0m navigation2: 7 messages, 0 services
+[36m--[0m Configuring done (9.2s)
+[36m--[0m Generating done (0.2s)
 [36m--[0m Build files have been written to: /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2

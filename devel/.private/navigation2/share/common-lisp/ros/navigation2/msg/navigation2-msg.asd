@@ -10,6 +10,8 @@
     (:file "_package_Goal" :depends-on ("_package"))
     (:file "Planner_state" :depends-on ("_package_Planner_state"))
     (:file "_package_Planner_state" :depends-on ("_package"))
+    (:file "auto" :depends-on ("_package_auto"))
+    (:file "_package_auto" :depends-on ("_package"))
     (:file "enc_feed" :depends-on ("_package_enc_feed"))
     (:file "_package_enc_feed" :depends-on ("_package"))
     (:file "gps_data" :depends-on ("_package_gps_data"))

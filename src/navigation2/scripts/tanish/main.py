@@ -129,9 +129,9 @@ class tube_detector:
                     msg.layout.dim[0].size = msg.layout.dim[0].stride = len(msg.data)
                     msg.layout.dim[0].label = 'write'
                     msg.data = [0,0,0]            
-                    msg.data[1] = self.cord_z - 0.1 #offset for zed camera
-                    msg.data[2] = -self.cord_y - 0.36
-                    msg.data[0] = self.cord_x-0.04 
+                    msg.data[1] = self.cord_z - 0.11 #offset for zed camera
+                    msg.data[2] = -self.cord_y - 0.38
+                    msg.data[0] = self.cord_x - 0.05 
                     print("Msg Data = ", msg.data)
 
                     d = math.pow(self.cord_x**2 + self.cord_y**2 + self.cord_z**2, 0.5)
@@ -180,9 +180,9 @@ class tube_detector:
 
             else:
                 pass
-            cv2.imshow('frame',self.cv_image)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                cv2.destroyAllWindows()
+            #cv2.imshow('frame',self.cv_image)
+            #if cv2.waitKey(1) & 0xFF == ord('q'):
+                #cv2.destroyAllWindows()
 
     def tube_frame(self,x,y,z):
         # self.tube_pose_pub.publish(t)

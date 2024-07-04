@@ -1,13 +1,13 @@
 [  5%] [32mBuilding CXX object CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o[0m
-[ 10%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_serial.cpp.o[0m
-[ 15%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/src/node.cpp.o[0m
-[ 20%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/timer.cpp.o[0m
-[ 25%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/dataunpacker.cpp.o[0m
-[ 30%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_socket.cpp.o[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/src/node.cpp.o[0m
+[ 15%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_serial.cpp.o[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_socket.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/timer.cpp.o[0m
 [01m[K/media/nvidia/galileo/home/nvidia/galileo2024/src/rplidar_ros/sdk/src/arch/linux/net_serial.cpp:[m[K In member function ‘[01m[Kvirtual void rp::arch::net::raw_serial::cancelOperation()[m[K’:
 [01m[K/media/nvidia/galileo/home/nvidia/galileo2024/src/rplidar_ros/sdk/src/arch/linux/net_serial.cpp:427:17:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kssize_t write(int, const void*, size_t)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
   427 |     (int)[01;35m[K::write(_selfpipe[1], "x", 1)[m[K;
       |          [01;35m[K~~~~~~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[ 30%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/dataunpacker.cpp.o[0m
 [ 35%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/unpacker/handler_capsules.cpp.o[0m
 [ 40%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/unpacker/handler_hqnode.cpp.o[0m
 [ 45%] [32mBuilding CXX object CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/unpacker/handler_normalnode.cpp.o[0m

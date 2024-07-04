@@ -3,13 +3,13 @@
 import rospy
 from geometry_msgs.msg import Twist, Point
 from nav_msgs.msg import Odometry
-from navigation.msg import gps_data
 from tf.transformations import euler_from_quaternion
 import math
 import imutils 
 import numpy as np
-from sensor_msgs.msg import Imu
+from sensor_msgs.msg import Imu, NavSatFix
 from traversal.msg import WheelRpm
+from navigation2.msg import auto
 
 class GoToGoal():
     def __init__(self):
@@ -17,7 +17,8 @@ class GoToGoal():
         self.velocity_publisher = rospy.Publisher('/motion', WheelRpm, queue_size=10)
         rospy.Subscriber('/odometry/filtered', Odometry, self.odom_callback)
         rospy.Subscriber('/imu', Imu, self.imu_callback)
-        rospy.Subscriber('/gps_coordinates', gps_data, self.gps_callback)
+        rospy.Subscriber('/gps_coordinates', NavSatFix, self.gps_callback)
+        rospy.Subscriber('/rscp_data', auto, self.rscp_callback)
         self.rate = rospy.Rate(10)
         self.dummy = 0
         self.odom_self = [0,0]
@@ -30,21 +31,33 @@ class GoToGoal():
         self.distance_calculated = False
         self.angle_calculated = False
         self.odom_initialized= False
-        self.gps_publisher = rospy.Publisher("gps_from_location1", gps_data, queue_size=10)
+        #self.gps_publisher = rospy.Publisher("gps_from_location1", gps_data, queue_size=10)
         self.lat_list = []
         self.long_list = []
         self.gps_received = False
-
-
 #from gps data include coordinates here
-        self.goal_lat = float(input("enter goal lat"))
-        self.goal_long = float(input("enter goal long"))
+        self.goal_lat = 0 #default
+        self.goal_long = 0 #default
+        self.rscp_received = False
 
-
-    # def update_pose(self, data):
-
+    def rscp_callback(self,data):
+        #
+        if(data.msg_id == 2):
+            self.rscp_received = True
+            self.goal_lat = data.latitude
+            self.goal_long = data.longitude
+        if data.msg_id == 10:
+            self.initial_lat = data.latitude
+            self.initial_long = data.longitude
+        if data.stage_id == 4:
+            self.second_gps_received = True
+            self.initial_lat = self.goal_lat
+            self.initial_long = self.goal_long
+            self.goal_lat = data.latitude
+            self.goal_long = data.longitude 
+    
     def distance_to_goal(self):
-        a = math.pow(math.sin((self.goal_lat - self.current_latitude)*math.pi/360),2) + math.cos(self.goal_lat*math.pi/180)*math.cos(self.current_latitude*math.pi/180)*math.pow(math.sin((self.goal_long - self.current_longitude)*math.pi/360),2)
+        a = math.pow(math.sin((self.goal_lat - self.initial_lat)*math.pi/360),2) + math.cos(self.goal_lat*math.pi/180)*math.cos(self.initial_lat*math.pi/180)*math.pow(math.sin((self.goal_long - self.initial_long)*math.pi/360),2)
         c = 2*math.atan2(math.sqrt(a), math.sqrt(1-a))
         print(f"a = {a}, c = {c}")
         self.distance = 6371 * c *1000
@@ -86,7 +99,7 @@ class GoToGoal():
 
     def get_angle_to_goal(self):
         # if hasattr(self, 'current_pose'):  # Check if current_pose attribute exists
-        a = math.atan2(self.goal_long - self.current_longitude, self.goal_lat - self.current_latitude)
+        a = math.atan2(self.goal_long - self.initial_long, self.goal_lat - self.initial_lat)
         self.angle_to_turn = self.current_yaw - a*180/math.pi
         print(self.angle_to_turn)
         if self.angle_to_turn < 0:
@@ -113,7 +126,7 @@ class GoToGoal():
             gps_msg = gps_data()
             gps_msg.latitude = self.current_latitude
             gps_msg.longitude = self.current_longitude
-            self.gps_publisher.publish(gps_msg)
+            #self.gps_publisher.publish(gps_msg)
              # haversine used to get the distance
         else:
             print("inside move_to_goal",self.current_yaw)
@@ -158,7 +171,7 @@ class GoToGoal():
             self.rate.sleep()
 
     def main(self):
-        if self.gps_received == True:
+        if (self.gps_received == False and self.rscp_received == True) or self.second_gps_received == True:
             if self.distance_calculated == False:
                 self.distance_to_goal()
             if self.angle_calculated == False:
