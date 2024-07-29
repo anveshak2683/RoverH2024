@@ -73,6 +73,7 @@ CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/enc_feed.l
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/imu_angle.l
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/auto.l
+CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/detection.l
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/manifest.l
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
@@ -99,19 +100,24 @@ CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from navigation2/auto.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg
 
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/detection.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/detection.l: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from navigation2/detection.msg"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg
+
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/enc_feed.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/enc_feed.l: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from navigation2/enc_feed.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from navigation2/enc_feed.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/gps_data.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/gps_data.l: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp code from navigation2/gps_data.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from navigation2/gps_data.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/imu_angle.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/imu_angle.l: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating EusLisp code from navigation2/imu_angle.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from navigation2/imu_angle.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg
 
 navigation2_generate_messages_eus: CMakeFiles/navigation2_generate_messages_eus
@@ -120,6 +126,7 @@ navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/Goal.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/Planner_state.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/auto.l
+navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/detection.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/enc_feed.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/gps_data.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/imu_angle.l

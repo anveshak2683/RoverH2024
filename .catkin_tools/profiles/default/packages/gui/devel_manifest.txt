@@ -1,0 +1,5 @@
+gui
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/gui/cmake.lock /media/nvidia/galileo/home/nvidia/galileo2024/devel/./cmake.lock
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/gui/share/gui/cmake/guiConfig-version.cmake /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gui/cmake/guiConfig-version.cmake
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/gui/share/gui/cmake/guiConfig.cmake /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gui/cmake/guiConfig.cmake
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/gui/lib/pkgconfig/gui.pc /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/pkgconfig/gui.pc

@@ -67,16 +67,16 @@
    (+
     ;; bool _arm
     1
-    ;; float32 _latitude
-    4
-    ;; float32 _longitude
-    4
+    ;; float64 _latitude
+    8
+    ;; float64 _longitude
+    8
     ;; int8 _setstage
     1
     ;; string _text
     4 (length _text)
-    ;; float32[] _aruco_coordinates
-    (* 4    (length _aruco_coordinates)) 4
+    ;; float64[] _aruco_coordinates
+    (* 8    (length _aruco_coordinates)) 4
     ;; string _reference
     4 (length _reference)
     ;; int8 _msg_id
@@ -88,18 +88,18 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; bool _arm
        (if _arm (write-byte -1 s) (write-byte 0 s))
-     ;; float32 _latitude
-       (sys::poke _latitude (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
-     ;; float32 _longitude
-       (sys::poke _longitude (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+     ;; float64 _latitude
+       (sys::poke _latitude (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _longitude
+       (sys::poke _longitude (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;; int8 _setstage
        (write-byte _setstage s)
      ;; string _text
        (write-long (length _text) s) (princ _text s)
-     ;; float32[] _aruco_coordinates
+     ;; float64[] _aruco_coordinates
      (write-long (length _aruco_coordinates) s)
      (dotimes (i (length _aruco_coordinates))
-       (sys::poke (elt _aruco_coordinates i) (send s :buffer) (send s :count) :float) (incf (stream-count s) 4)
+       (sys::poke (elt _aruco_coordinates i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
        )
      ;; string _reference
        (write-long (length _reference) s) (princ _reference s)
@@ -111,21 +111,21 @@
    (buf &optional (ptr- 0))
    ;; bool _arm
      (setq _arm (not (= 0 (sys::peek buf ptr- :char)))) (incf ptr- 1)
-   ;; float32 _latitude
-     (setq _latitude (sys::peek buf ptr- :float)) (incf ptr- 4)
-   ;; float32 _longitude
-     (setq _longitude (sys::peek buf ptr- :float)) (incf ptr- 4)
+   ;; float64 _latitude
+     (setq _latitude (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _longitude
+     (setq _longitude (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;; int8 _setstage
      (setq _setstage (sys::peek buf ptr- :char)) (incf ptr- 1)
      (if (> _setstage 127) (setq _setstage (- _setstage 256)))
    ;; string _text
      (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _text (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
-   ;; float32[] _aruco_coordinates
+   ;; float64[] _aruco_coordinates
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
      (setq _aruco_coordinates (instantiate float-vector n))
      (dotimes (i n)
-     (setf (elt _aruco_coordinates i) (sys::peek buf ptr- :float)) (incf ptr- 4)
+     (setf (elt _aruco_coordinates i) (sys::peek buf ptr- :double)) (incf ptr- 8)
      ))
    ;; string _reference
      (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _reference (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
@@ -136,15 +136,15 @@
    self)
   )
 
-(setf (get navigation2::auto :md5sum-) "9fc9b7878baa2559a000819e683c677c")
+(setf (get navigation2::auto :md5sum-) "65672b1bd9673047ebc0672e3417ec0f")
 (setf (get navigation2::auto :datatype-) "navigation2/auto")
 (setf (get navigation2::auto :definition-)
       "bool arm
-float32 latitude 
-float32 longitude
+float64 latitude 
+float64 longitude
 int8 setstage 
 string text
-float32[] aruco_coordinates
+float64[] aruco_coordinates
 string reference 
 int8 msg_id
 
@@ -153,6 +153,6 @@ int8 msg_id
 
 
 
-(provide :navigation2/auto "9fc9b7878baa2559a000819e683c677c")
+(provide :navigation2/auto "65672b1bd9673047ebc0672e3417ec0f")
 
 

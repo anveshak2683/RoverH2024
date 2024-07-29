@@ -80,6 +80,7 @@ class GoToGoal():
          
         ##SPL VARIABLE##
         self.y_disp_too_less = False
+        
         #below code is for orienting rover towards object
         self.aligned_center = False
         self.lr_points = 10
@@ -95,6 +96,13 @@ class GoToGoal():
             self.execute_goal=True
         if msg.data==4:
             self.execute_goal=False
+
+    def laser_callback(self,msg):
+        self.tensor_prime = torch.tensor(msg.ranges).to(device)
+        self.num_scans = len(msg.ranges)
+        self.angle_max = msg.angle_max*180/math.pi
+            self.current_latitude = msg.latitude
+            self.current_longitude = msg.longitude
 
     def laser_callback(self,msg):
         self.tensor_prime = torch.tensor(msg.ranges).to(device)
@@ -173,16 +181,6 @@ class GoToGoal():
             self.turn_started = False
             vel_msg.vel = 0
             vel_msg.omega = 0
-
-
-        '''
-        vel_msg.linear.x = kp*(target_x - self.current_pose_x)*math.cos(self.yaw_angle)+ 3*kp*(target_y - self.current_pose_y)*math.sin(self.yaw_angle)
-        if(abs((target_y - self.current_pose_y)/(target_x - self.current_pose_x))>10):
-            vel_msg.angular.z = 0
-        else:
-            vel_msg.angular.z = kp_yaw*(-self.yaw_angle + math.atan((target_y - self.current_pose_y)/(target_x - self.current_pose_x)))
-        '''
-
         return vel_msg
     
     def orient_rover(self):
@@ -347,13 +345,6 @@ class GoToGoal():
                 else:
                     self.time_turn = self.time_turn + time.time()-self.last_time_turn
                     self.last_time_turn = time.time()
-
-                print("Obstacle detected!")
-                print(f"Time of turning = {self.time_turn}")
-                print(f"Y Displacement = {self.displacement_y}")
-
-                #elif self.current_pose_y > 0.05:
-            else:
                 vel_msg.vel = self.move_speed
                 self.displacement_y = self.displacement_y + math.sin(self.yaw_angle)#self.time_turn
                 vel_msg.omega = -self.turn_speed

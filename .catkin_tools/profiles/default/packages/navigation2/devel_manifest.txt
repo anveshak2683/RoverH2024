@@ -2,6 +2,7 @@ navigation2
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/cmake.lock /media/nvidia/galileo/home/nvidia/galileo2024/devel/./cmake.lock
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/Enc_dist.h /media/nvidia/galileo/home/nvidia/galileo2024/devel/include/navigation2/Enc_dist.h
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/Goal.h /media/nvidia/galileo/home/nvidia/galileo2024/devel/include/navigation2/Goal.h
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/detection.h /media/nvidia/galileo/home/nvidia/galileo2024/devel/include/navigation2/detection.h
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/imu_angle.h /media/nvidia/galileo/home/nvidia/galileo2024/devel/include/navigation2/imu_angle.h
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/Planner_state.h /media/nvidia/galileo/home/nvidia/galileo2024/devel/include/navigation2/Planner_state.h
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/auto.h /media/nvidia/galileo/home/nvidia/galileo2024/devel/include/navigation2/auto.h
@@ -14,6 +15,7 @@ navigation2
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/auto.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/auto.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_gps_data.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/_package_gps_data.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/Goal.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/Goal.lisp
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/detection.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/detection.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_auto.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/_package_auto.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/Planner_state.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/Planner_state.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/_package.lisp
@@ -22,9 +24,11 @@ navigation2
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_enc_feed.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/_package_enc_feed.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_imu_angle.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/_package_imu_angle.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_Goal.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/_package_Goal.lisp
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_detection.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/_package_detection.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/enc_feed.lisp /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/common-lisp/ros/navigation2/msg/enc_feed.lisp
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/_index.js /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gennodejs/ros/navigation2/_index.js
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Goal.js /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gennodejs/ros/navigation2/msg/Goal.js
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/detection.js /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gennodejs/ros/navigation2/msg/detection.js
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/gps_data.js /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gennodejs/ros/navigation2/msg/gps_data.js
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/imu_angle.js /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gennodejs/ros/navigation2/msg/imu_angle.js
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/enc_feed.js /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/gennodejs/ros/navigation2/msg/enc_feed.js
@@ -39,6 +43,7 @@ navigation2
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/manifest.l /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/roseus/ros/navigation2/manifest.l
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/Enc_dist.l /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/roseus/ros/navigation2/msg/Enc_dist.l
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/Planner_state.l /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/roseus/ros/navigation2/msg/Planner_state.l
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/detection.l /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/roseus/ros/navigation2/msg/detection.l
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/Goal.l /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/roseus/ros/navigation2/msg/Goal.l
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/imu_angle.l /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/roseus/ros/navigation2/msg/imu_angle.l
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/enc_feed.l /media/nvidia/galileo/home/nvidia/galileo2024/devel/share/roseus/ros/navigation2/msg/enc_feed.l
@@ -54,3 +59,4 @@ navigation2
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_auto.py /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/python3/dist-packages/navigation2/msg/_auto.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_gps_data.py /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/python3/dist-packages/navigation2/msg/_gps_data.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_imu_angle.py /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/python3/dist-packages/navigation2/msg/_imu_angle.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/python3/dist-packages/navigation2/msg/_detection.py /media/nvidia/galileo/home/nvidia/galileo2024/devel/lib/python3/dist-packages/navigation2/msg/_detection.py

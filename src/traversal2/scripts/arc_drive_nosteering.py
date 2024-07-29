@@ -54,8 +54,8 @@ class Drive:
         self.state = False
         self.steer_samedir_axis = 2
         self.steer_oppdir_axis = 3
-        self.fb_axis = 1 #forward-back
-        self.lr_axis = 2 #left-right
+        self.fb_axis = 2 #forward-back
+        self.lr_axis = 1 #left-right
 
         self.prints_per_iter = 3
         self.print_ctrl = self.prints_per_iter
@@ -145,10 +145,10 @@ class Drive:
                 omega = 0
 
                 if(self.state == False): #without autonomous, where velocity and omega need to be computed 
-                    velocity = self.s_arr[self.mode] * self.drive_ctrl[0]
-                    omega = self.s_arr[self.mode] * self.drive_ctrl[1]
+                    omega = self.s_arr[self.mode] * self.drive_ctrl[0]
+                    velocity = self.s_arr[self.mode] * self.drive_ctrl[1]
                 else:
-                    velocity = self.autonomous_vel
+                    velocity =self.autonomous_vel
                     omega = self.autonomous_omega
 
                 #for smooth starting and stopping (moving average)

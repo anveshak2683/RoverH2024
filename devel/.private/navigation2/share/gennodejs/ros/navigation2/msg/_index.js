@@ -2,6 +2,7 @@
 "use strict";
 
 let gps_data = require('./gps_data.js');
+let detection = require('./detection.js');
 let enc_feed = require('./enc_feed.js');
 let Enc_dist = require('./Enc_dist.js');
 let auto = require('./auto.js');
@@ -11,6 +12,7 @@ let imu_angle = require('./imu_angle.js');
 
 module.exports = {
   gps_data: gps_data,
+  detection: detection,
   enc_feed: enc_feed,
   Enc_dist: Enc_dist,
   auto: auto,

@@ -22,10 +22,10 @@ class Node:
         
         outbuff[0] =  - axes[1]
         outbuff[1] =  - axes[0]
-        outbuff[2] = -buttons[1] + buttons[0]
-        outbuff[3] = axes[2]
-        outbuff[4] = -axes[3]
-        outbuff[5] = -buttons[1] - buttons[0]
+        outbuff[2] = -buttons[1] - buttons[0]   #buttons[0] is 2 buttons, say X and A. If both outbuff[2] and outbuff[5] are positive, roll (say) will happen clockwise; if they are -ve, it will happen anti-clockwise. If [2] is +ve and [5] is -ve, pitch will happen (say) up and vice versa
+        outbuff[3] = -axes[3]
+        outbuff[4] = axes[2]
+        outbuff[5] = -buttons[1] + buttons[0]
         
         self.outbuff = outbuff
         print (self.outbuff)

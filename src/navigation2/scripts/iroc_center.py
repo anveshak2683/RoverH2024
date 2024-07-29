@@ -126,26 +126,26 @@ class find_center():
                     msg.layout.dim[0].label = 'write'
                     #msg.data = [x,z-0.11,-y-0.36]  
                     #msg.data = [-self.cord_y-0.24,self.cord_x,self.cord_z]
-                    msg.data = [-self.cord_y - 0.28, self.cord_z-0.05, self.cord_x+0.10]
+                    msg.data = [-self.cord_y - 0.26, self.cord_z-0.05, self.cord_x+0.15]
                     g = WheelRpm()
-                    kp = 20
+                    kp = 26.67
                     if abs(msg.data[1]) > 0.75:
                         g.vel =20
                     elif abs(msg.data[1]) > 0.5 and abs(msg.data[1]) < 0.75:
                         g.vel = int(min(kp * d, 20))
                         #g.vel = 0
-                    elif abs(msg.data[1]) < 0.5:
+                    elif abs(msg.data[1]) < 0.4:
                         print("conndition for nearing goal", msg.data[1])
                         g.vel = 0
                         print("i'm near goal")
                         self.goal_reached = True
+                    else:
+                        pass
                             
-                    if self.p_x > 340:
-                        g.omega = -30
-                        g.vel = 0
-                    elif self.p_x <290 and self.p_x>0:
-                        g.omega = 30
-                        g.vel = 0
+                    if self.p_x > 370:
+                        g.omega = -15
+                    elif self.p_x <270 and self.p_x>0:
+                        g.omega = 15
                     else:
                         g.omega = 0    
                         self.goal_reached_angular = True
@@ -182,8 +182,7 @@ class find_center():
     def get_depth(self,x,y):
         if x<360 and y<640:
             print("x and y in get_depth", x,y)
-            frame = np.asanyarray(self.dframe)
-            depth=frame[int(y),int(x)]
+            depth=self.dframe[int(y),int(x)]
             return depth
     def get_coords(self):
         f_x=527.2972398956961

@@ -15,7 +15,7 @@ class ZedCam:
 
     def image_callback(self, data):
         try:
-            self.image = self.bridge.imgmsg_to_cv2(data, 'passthrough')  # Changed to 'bgr8'
+            self.image = self.bridge.imgmsg_to_cv2(data, 'bgr8')  # Changed to 'bgr8'
             self.image_arrived = True
         except CvBridgeError as e:
             print(e)

@@ -84,15 +84,15 @@ class auto {
     // Serialize message field [arm]
     bufferOffset = _serializer.bool(obj.arm, buffer, bufferOffset);
     // Serialize message field [latitude]
-    bufferOffset = _serializer.float32(obj.latitude, buffer, bufferOffset);
+    bufferOffset = _serializer.float64(obj.latitude, buffer, bufferOffset);
     // Serialize message field [longitude]
-    bufferOffset = _serializer.float32(obj.longitude, buffer, bufferOffset);
+    bufferOffset = _serializer.float64(obj.longitude, buffer, bufferOffset);
     // Serialize message field [setstage]
     bufferOffset = _serializer.int8(obj.setstage, buffer, bufferOffset);
     // Serialize message field [text]
     bufferOffset = _serializer.string(obj.text, buffer, bufferOffset);
     // Serialize message field [aruco_coordinates]
-    bufferOffset = _arraySerializer.float32(obj.aruco_coordinates, buffer, bufferOffset, null);
+    bufferOffset = _arraySerializer.float64(obj.aruco_coordinates, buffer, bufferOffset, null);
     // Serialize message field [reference]
     bufferOffset = _serializer.string(obj.reference, buffer, bufferOffset);
     // Serialize message field [msg_id]
@@ -107,15 +107,15 @@ class auto {
     // Deserialize message field [arm]
     data.arm = _deserializer.bool(buffer, bufferOffset);
     // Deserialize message field [latitude]
-    data.latitude = _deserializer.float32(buffer, bufferOffset);
+    data.latitude = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [longitude]
-    data.longitude = _deserializer.float32(buffer, bufferOffset);
+    data.longitude = _deserializer.float64(buffer, bufferOffset);
     // Deserialize message field [setstage]
     data.setstage = _deserializer.int8(buffer, bufferOffset);
     // Deserialize message field [text]
     data.text = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [aruco_coordinates]
-    data.aruco_coordinates = _arrayDeserializer.float32(buffer, bufferOffset, null)
+    data.aruco_coordinates = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [reference]
     data.reference = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [msg_id]
@@ -126,9 +126,9 @@ class auto {
   static getMessageSize(object) {
     let length = 0;
     length += _getByteLength(object.text);
-    length += 4 * object.aruco_coordinates.length;
+    length += 8 * object.aruco_coordinates.length;
     length += _getByteLength(object.reference);
-    return length + 23;
+    return length + 31;
   }
 
   static datatype() {
@@ -138,18 +138,18 @@ class auto {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '9fc9b7878baa2559a000819e683c677c';
+    return '65672b1bd9673047ebc0672e3417ec0f';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     bool arm
-    float32 latitude 
-    float32 longitude
+    float64 latitude 
+    float64 longitude
     int8 setstage 
     string text
-    float32[] aruco_coordinates
+    float64[] aruco_coordinates
     string reference 
     int8 msg_id
     

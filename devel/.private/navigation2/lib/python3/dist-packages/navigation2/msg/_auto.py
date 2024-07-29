@@ -8,21 +8,21 @@ import struct
 
 
 class auto(genpy.Message):
-  _md5sum = "9fc9b7878baa2559a000819e683c677c"
+  _md5sum = "65672b1bd9673047ebc0672e3417ec0f"
   _type = "navigation2/auto"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """bool arm
-float32 latitude 
-float32 longitude
+float64 latitude 
+float64 longitude
 int8 setstage 
 string text
-float32[] aruco_coordinates
+float64[] aruco_coordinates
 string reference 
 int8 msg_id
 
 """
   __slots__ = ['arm','latitude','longitude','setstage','text','aruco_coordinates','reference','msg_id']
-  _slot_types = ['bool','float32','float32','int8','string','float32[]','string','int8']
+  _slot_types = ['bool','float64','float64','int8','string','float64[]','string','int8']
 
   def __init__(self, *args, **kwds):
     """
@@ -80,7 +80,7 @@ int8 msg_id
     """
     try:
       _x = self
-      buff.write(_get_struct_B2fb().pack(_x.arm, _x.latitude, _x.longitude, _x.setstage))
+      buff.write(_get_struct_B2db().pack(_x.arm, _x.latitude, _x.longitude, _x.setstage))
       _x = self.text
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -89,7 +89,7 @@ int8 msg_id
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       length = len(self.aruco_coordinates)
       buff.write(_struct_I.pack(length))
-      pattern = '<%sf'%length
+      pattern = '<%sd'%length
       buff.write(struct.Struct(pattern).pack(*self.aruco_coordinates))
       _x = self.reference
       length = len(_x)
@@ -113,8 +113,8 @@ int8 msg_id
       end = 0
       _x = self
       start = end
-      end += 10
-      (_x.arm, _x.latitude, _x.longitude, _x.setstage,) = _get_struct_B2fb().unpack(str[start:end])
+      end += 18
+      (_x.arm, _x.latitude, _x.longitude, _x.setstage,) = _get_struct_B2db().unpack(str[start:end])
       self.arm = bool(self.arm)
       start = end
       end += 4
@@ -128,7 +128,7 @@ int8 msg_id
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sf'%length
+      pattern = '<%sd'%length
       start = end
       s = struct.Struct(pattern)
       end += s.size
@@ -158,7 +158,7 @@ int8 msg_id
     """
     try:
       _x = self
-      buff.write(_get_struct_B2fb().pack(_x.arm, _x.latitude, _x.longitude, _x.setstage))
+      buff.write(_get_struct_B2db().pack(_x.arm, _x.latitude, _x.longitude, _x.setstage))
       _x = self.text
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -167,7 +167,7 @@ int8 msg_id
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       length = len(self.aruco_coordinates)
       buff.write(_struct_I.pack(length))
-      pattern = '<%sf'%length
+      pattern = '<%sd'%length
       buff.write(self.aruco_coordinates.tostring())
       _x = self.reference
       length = len(_x)
@@ -192,8 +192,8 @@ int8 msg_id
       end = 0
       _x = self
       start = end
-      end += 10
-      (_x.arm, _x.latitude, _x.longitude, _x.setstage,) = _get_struct_B2fb().unpack(str[start:end])
+      end += 18
+      (_x.arm, _x.latitude, _x.longitude, _x.setstage,) = _get_struct_B2db().unpack(str[start:end])
       self.arm = bool(self.arm)
       start = end
       end += 4
@@ -207,11 +207,11 @@ int8 msg_id
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sf'%length
+      pattern = '<%sd'%length
       start = end
       s = struct.Struct(pattern)
       end += s.size
-      self.aruco_coordinates = numpy.frombuffer(str[start:end], dtype=numpy.float32, count=length)
+      self.aruco_coordinates = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -232,12 +232,12 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_B2fb = None
-def _get_struct_B2fb():
-    global _struct_B2fb
-    if _struct_B2fb is None:
-        _struct_B2fb = struct.Struct("<B2fb")
-    return _struct_B2fb
+_struct_B2db = None
+def _get_struct_B2db():
+    global _struct_B2db
+    if _struct_B2db is None:
+        _struct_B2db = struct.Struct("<B2db")
+    return _struct_B2db
 _struct_b = None
 def _get_struct_b():
     global _struct_b

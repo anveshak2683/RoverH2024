@@ -13,7 +13,6 @@ from navigation2.msg import auto
 
 class GoToGoal():
     def __init__(self):
-        #rospy.init_node('go_to_goal', anonymous=True)
         self.velocity_publisher = rospy.Publisher('/motion', WheelRpm, queue_size=10)
         rospy.Subscriber('/odometry/filtered', Odometry, self.odom_callback)
         rospy.Subscriber('/imu', Imu, self.imu_callback)
@@ -39,9 +38,9 @@ class GoToGoal():
         self.goal_lat = 0 #default
         self.goal_long = 0 #default
         self.rscp_received = False
+        self.second_gps_received = False
 
     def rscp_callback(self,data):
-        #
         if(data.msg_id == 2):
             self.rscp_received = True
             self.goal_lat = data.latitude
@@ -185,7 +184,7 @@ class GoToGoal():
 
 if __name__ == '__main__':
     try:
-        rospy.init_node('go_to_goal', anonymous=True)
+        rospy.init_node('go_to_goal')
         rate = rospy.Rate(10)
         auto = GoToGoal()
         auto.spin()

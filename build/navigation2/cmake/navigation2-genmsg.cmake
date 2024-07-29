@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "navigation2: 7 messages, 0 services")
+message(STATUS "navigation2: 8 messages, 0 services")
 
 set(MSG_I_FLAGS "-Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -52,6 +52,11 @@ add_custom_target(_navigation2_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation2" "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg" ""
 )
 
+get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg" NAME_WE)
+add_custom_target(_navigation2_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "navigation2" "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -100,6 +105,12 @@ _generate_msg_cpp(navigation2
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation2
 )
+_generate_msg_cpp(navigation2
+  "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/navigation2
+)
 
 ### Generating Services
 
@@ -128,6 +139,8 @@ add_dependencies(navigation2_generate_messages_cpp _navigation2_generate_message
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_cpp _navigation2_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg" NAME_WE)
+add_dependencies(navigation2_generate_messages_cpp _navigation2_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_cpp _navigation2_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -181,6 +194,12 @@ _generate_msg_eus(navigation2
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation2
 )
+_generate_msg_eus(navigation2
+  "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/navigation2
+)
 
 ### Generating Services
 
@@ -209,6 +228,8 @@ add_dependencies(navigation2_generate_messages_eus _navigation2_generate_message
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_eus _navigation2_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg" NAME_WE)
+add_dependencies(navigation2_generate_messages_eus _navigation2_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_eus _navigation2_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -262,6 +283,12 @@ _generate_msg_lisp(navigation2
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation2
 )
+_generate_msg_lisp(navigation2
+  "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/navigation2
+)
 
 ### Generating Services
 
@@ -290,6 +317,8 @@ add_dependencies(navigation2_generate_messages_lisp _navigation2_generate_messag
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_lisp _navigation2_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg" NAME_WE)
+add_dependencies(navigation2_generate_messages_lisp _navigation2_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_lisp _navigation2_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -343,6 +372,12 @@ _generate_msg_nodejs(navigation2
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation2
 )
+_generate_msg_nodejs(navigation2
+  "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/navigation2
+)
 
 ### Generating Services
 
@@ -371,6 +406,8 @@ add_dependencies(navigation2_generate_messages_nodejs _navigation2_generate_mess
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_nodejs _navigation2_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg" NAME_WE)
+add_dependencies(navigation2_generate_messages_nodejs _navigation2_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_nodejs _navigation2_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -424,6 +461,12 @@ _generate_msg_py(navigation2
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation2
 )
+_generate_msg_py(navigation2
+  "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/navigation2
+)
 
 ### Generating Services
 
@@ -452,6 +495,8 @@ add_dependencies(navigation2_generate_messages_py _navigation2_generate_messages
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_py _navigation2_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg" NAME_WE)
+add_dependencies(navigation2_generate_messages_py _navigation2_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg" NAME_WE)
 add_dependencies(navigation2_generate_messages_py _navigation2_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

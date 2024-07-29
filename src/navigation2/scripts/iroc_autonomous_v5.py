@@ -52,8 +52,8 @@ class habibo():
         # get waypoint coordinates and put it in here
         #self.goals_x=[0.97,2.44,3.3,3.4,8.41]
         #self.goals_y=[0.97,-1.71,-1.9,-0.77,-3.0]
-        self.goals_x = [0.9, 2.25, 2.3, 5.8, 6.22]
-        self.goals_y = [1.18, 2.05, 1.6, 2.5, 1.55]
+        self.goals_x = [0.9, 2.45, 2.45, 5.2, 6.22]
+        self.goals_y = [1.0, 1.8, 1.5, 2.2, 1.55]
         # self.goals_x[2] = float(input("Enter the x1 coordinate: "))
         # self.goals_y[2] = float(input("Enter the y1 coordinate: "))
 
@@ -220,7 +220,7 @@ class habibo():
                             print('top, bottom,left,right,depth_value',
                                     top, bottom, left, right, depth_value)
                             print("Height of the object:", height)
-                            if height < 24 and depth_value<1 and depth_value > 0.8	:
+                            if height < 24 and depth_value<1 and depth_value > 0.8:
                                 if abs(self.current_yaw - self.desired_angle_gtg) < 6:
                                     #self.ret_guiding_cube = True
                                     #self.safe_obstacle_avoidance(left, right, depth_value)

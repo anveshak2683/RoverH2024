@@ -10,7 +10,7 @@ import numpy as np
 from sensor_msgs.msg import Imu, NavSatFix
 from traversal.msg import WheelRpm
 from navigation2.msg import auto
-from std_msgs.msg import Int32
+from std_msgs.msg import Int32, Int8
 
 class GoToGoal():
     def __init__(self):
@@ -20,7 +20,8 @@ class GoToGoal():
         rospy.Subscriber('/imu', Imu, self.imu_callback)
         rospy.Subscriber('/gps_coordinates', NavSatFix, self.gps_callback)
         rospy.Subscriber('/rscp_data', auto, self.rscp_callback)
-        self.check_publisher=rospy.Publisher('/check',Int32,queue_size=10)
+        self.check_publisher=rospy.Publisher('/check',Int32,queue_size=100)
+        self.task_completed_pub = rospy.Publisher('/task_completed', Int32, queue_size=100)
         self.rate = rospy.Rate(10)
         self.dummy = 0
         self.odom_self = [0,0]
@@ -44,8 +45,11 @@ class GoToGoal():
         self.execute_goal=True
         self.check_msg=Int32()
         self.check_msg.data=0
-        self.check_publisher.publish(self.check_msg) #setting initial value of counter as 0 so that gps code runs
         self.second_gps_received = False
+        self.initial_lat = 0
+        self.initial_long = 0
+        self.counter = 0 #publish the check value only once after completion
+
 
     def rscp_callback(self,data):
         #
@@ -53,23 +57,23 @@ class GoToGoal():
             self.rscp_received = True
             self.goal_lat = data.latitude
             self.goal_long = data.longitude
-        if data.msg_id == 10:
+        elif data.msg_id == 10:
             self.initial_lat = data.latitude
             self.initial_long = data.longitude
+            print(f"In Callback: {self.initial_lat}, {self.initial_long}")
         if data.stage_id == 4:
             self.second_gps_received = True
             self.initial_lat = self.goal_lat
             self.initial_long = self.goal_long
             self.goal_lat = data.latitude
-            self.goal_long = data.longitude 
+            self.goal_long = data.longitude
+
     
     def distance_to_goal(self):
         a = math.pow(math.sin((self.goal_lat - self.initial_lat)*math.pi/360),2) + math.cos(self.goal_lat*math.pi/180)*math.cos(self.initial_lat*math.pi/180)*math.pow(math.sin((self.goal_long - self.initial_long)*math.pi/360),2)
         c = 2*math.atan2(math.sqrt(a), math.sqrt(1-a))
-        print(f"a = {a}, c = {c}")
         self.distance = 6371 * c *1000
         self.distance_calculated = True
-        #self.distance = math.sqrt((self.goal_lat - self.current_latitude)**2 +(self.goal_long - self.current_longitude)**2)
         
     def odom_callback(self, data):
         #print("Odometry callback called.")
@@ -109,7 +113,7 @@ class GoToGoal():
         a = math.atan2(self.goal_long - self.initial_long, self.goal_lat - self.initial_lat)
         self.angle_to_turn = self.current_yaw - a*180/math.pi
         print(self.angle_to_turn)
-        if self.angle_to_turn < 0:
+        if self.angle_to_turn <= 0:
             rotation = "left"
             self.dummy = -1
         elif self.angle_to_turn > 0:
@@ -130,15 +134,7 @@ class GoToGoal():
             vel_msg.vel = 0
             vel_msg.omega = 0
             self.velocity_publisher.publish(vel_msg)
-            gps_msg = gps_data()
-            gps_msg.latitude = self.current_latitude
-            gps_msg.longitude = self.current_longitude
-            self.check_msg.data=1
-            self.check_publisher.publish(self.check_msg)
-            self.execute_goal=False
-            #self.gps_publisher.publish(gps_msg)
-             # haversine used to get the distance
-        else:
+       else:
             print("inside move_to_goal",self.current_yaw)
             if (self.current_yaw - self.angle_to_turn) < -4:
                 #vel_msg = WheelRpm()
@@ -154,6 +150,10 @@ class GoToGoal():
                 #vel_msg = WheelRpm()
                 vel_msg.vel = 20
                 vel_msg.omega= 0
+            elif abs(self.current_yaw - self.angle_to_turn)<4 and self.second_gps_received == True:
+                self.check_msg.data=1
+                self.execute_goal=False #Goal has reached
+ 
             else:
                 vel_msg.vel = 0
                 vel_msg.omega = 0
@@ -179,7 +179,12 @@ class GoToGoal():
     def spin(self):
         while not rospy.is_shutdown():
             if (self.execute_goal==True): # check if execute_goal is True
-               self.main()
+                self.main()
+                self.check_publisher.publish(self.check_msg) #setting initial value of counter as 0 so that gps code runs
+            elif self.counter == 0:
+                self.check_publisher.publish(self.check_msg) #setting initial value of counter as 0 so that gps code runs
+                self.task_completed_pub.publish(1)
+#                self.counter = self.counter + 1
             self.rate.sleep()
 
     def main(self):
@@ -189,7 +194,7 @@ class GoToGoal():
             if self.angle_calculated == False:
                 self.get_angle_to_goal()
             self.move_to_goal()
-        print("Where am i?", self.odom_self)
+        print("Where am i?", self.initial_lat, self.initial_long)
         print("goal", self.goal_lat, self.goal_long)
         print("angle_to_turn", self.angle_to_turn)
         print("self.current_yaw", self.current_yaw)
@@ -198,7 +203,6 @@ class GoToGoal():
 if __name__ == '__main__':
     try:
         rospy.init_node('go_to_goal', anonymous=True)
-        rate = rospy.Rate(10)
         auto = GoToGoal()
         auto.spin()
     except rospy.ROSInterruptException:

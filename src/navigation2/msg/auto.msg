@@ -1,9 +1,9 @@
 bool arm
-float32 latitude 
-float32 longitude
+float64 latitude 
+float64 longitude
 int8 setstage 
 string text
-float32[] aruco_coordinates
+float64[] aruco_coordinates
 string reference 
 int8 msg_id
 

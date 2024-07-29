@@ -16,13 +16,13 @@ class Node:
     def joyCallback (self, msg):
         outbuff = [0, 0, 0, 0, 0, 0]
         
-        axes = [ int (msg.axes[i] * 0x9F) for i in range(5) ]
-        buttons = [ (msg.buttons[1] - msg.buttons[3])*100]
-        buttons.append((msg.buttons[0] - msg.buttons[4])*100)
+        axes = [ int (msg.axes[i] * 0xFF) for i in range(5) ]
+        buttons = [ (msg.buttons[1] - msg.buttons[3])*255]
+        buttons.append((msg.buttons[0] - msg.buttons[4])*255)
 
         #Yukteshwar
         outbuff[0] =  - axes[1]
-        outbuff[1] = axes[0]
+        outbuff[1] = -axes[0]
         outbuff[2] = -buttons[1] + buttons[0]
         outbuff[3] = -axes[3]
         outbuff[4] = -axes[2]

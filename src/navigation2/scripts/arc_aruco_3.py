@@ -54,7 +54,7 @@ class Aruco_detection():
         self.start_time = time.time()
         self.angles_dict = defaultdict(list)
         self.tmp_dict = defaultdict(list)
-        self.angle_thresh = 5
+        self.angle_thresh = 2
         self.z_angle = 0
         self.color_image = np.zeros((360,640))
         self.depth_image = np.zeros((360,640))
@@ -76,7 +76,7 @@ class Aruco_detection():
             print("1")
             rospy.Subscriber('chatter',std_msgs.Float32,self.yaw_callback)
             print("2")
-            rospy.Subscriber('enc_base',std_msgs.Float32MultiArray,self.enc_callback)
+            rospy.Subscriber('enc_auto',std_msgs.Float32MultiArray,self.enc_callback)
             print("3")  
             rospy.Subscriber('gps_coordinates', gps_data, self.gps_callback)
             print("4")
@@ -151,15 +151,21 @@ class Aruco_detection():
         distortion=np.array((0.0, 0.0, 0.0, 0.0, 0.0))
         
         print(color_image.shape)
+        print()
+        print("inside aruco_recognition")
+        depth_array = None
         ret, output, ids, depth_array = self.pose_estimation(color_image, depth_image, intrinsic_camera, distortion)        #returns a list of two entities at all times
-        depth_array.sort()
-        depth_array.remove(0.0)
-        if len(depth_array)>=2:                                  #filters used are minimum distance and not zero(if something else pops up during testing, add here)
-            depth_array = [depth_array[0], depth_array[1]]
-        elif len(depth_array)==1:
-            depth_array = [depth_array[0], None]
-        else:
-            depth_array = [None, None]
+        if depth_array != None:
+            depth_array.sort()
+            while (depth_array[0]==0.0 or depth_array[0]==0):
+                depth_array.remove(0.0)
+                depth_array.remove(0)
+            if len(depth_array)>=2:                                  #filters used are minimum distance and not zero(if something else pops up during testing, add here)
+                depth_array = [depth_array[0], depth_array[1]]
+            elif len(depth_array)==1:
+                depth_array = [depth_array[0], None]
+            else:
+                depth_array = [None, None]
         return ret, ids, depth_array
 
     def pose_estimation(self,frame,depth_frame, matrix_coefficients, distortion_coefficients):      #pose estimation means to find the tilt of aruco with the rover     #probably won't be used in this code
@@ -203,17 +209,9 @@ class Aruco_detection():
                 print("shape of depth_frame", np.shape(depth_frame))
                 #print("corners", corners[0][0]+corners[1][0]+corners[2][0]+corners[3][0])//4, (corners[0][1]+corners[1][1]+corners[2][1]+corners[3][1])//4))
                 print("corners",np.shape(corners))
-                x00=corners[0][0]
-                x01=corners[0][1]
-                x02 = corners[0][2]
-                x03=corners[0][3]
-                x10 = corners[1][0]
-                x21=corners[1][1]
-                x31 = corners[1][2]
-                x41 = corners[1][3]
-
-                #depth_array = depth_frame[(int(corners[0][0])+int(corners[1][0])+int(corners[2][0])+int(corners[3][0]))//4,(int(corners[0][1])+int(corners[1][1])+int(corners[2][1])+int(corners[3][1])//4)]
-                depth_array = depth_frame[(x00+x01+x02+x03)//4, (x10+x21+x31+x41)//4]
+        
+                depth_array = depth_frame[(int(corners[0][0][0][0])+int(corners[0][0][1][0])+int(corners[0][0][2][0])+int(corners[0][0][3][0]))//4,(int(corners[0][0][0][1])+int(corners[0][0][1][1])+int(corners[0][0][2][1])+int(corners[0][0][3][1])//4)]
+                #depth_array = depth_frame[(x00+x01+x02+x03)//4, (x10+x21+x31+x41)//4]
             '''
             if depth<=1.5:
                 rotate_angle = 90 - angle_to_turn
@@ -234,7 +232,7 @@ class Aruco_detection():
         depth_frame = self.depth_image
         ret = False
         print("img shape", np.shape(self.color_image))
-        results = model.predict(self.color_image, conf = 0.55, max_det = 3)
+        results = model.predict(self.color_image, conf = 0.35, max_det = 3)
         depth_array = []
         for r in results:
             annotator = Annotator(self.color_image)
@@ -250,10 +248,11 @@ class Aruco_detection():
                 left, top, right, bottom = map(int, b)
                 arrow_center = (left+right)/2
                 try:
-                    dist = depth_frame[(left + right) // 2, (top + bottom) // 2]
+                    dist = depth_frame[(top+bottom) // 2, (left+right) // 2]
                     if dist != 0.0:
                         depth_array.append(int(dist))
                         print("Depth for box" + str(b) + ":" + str(depth_array[-1]) +"meters")
+                        self.start_time = time.time()   #this is for reducing the frequency of hitting search
                 except:
                     ret = False
         if len(depth_array)>=2:
@@ -277,7 +276,7 @@ class Aruco_detection():
             return
         
         print("Search function is active rn")
-        if time.time() - self.start_time < 25:
+        if time.time() - self.start_time < 25 and self.init == False:
             print("search will occur once this time becomes 25:", time.time()-self.start_time)
             return
         
@@ -308,7 +307,7 @@ class Aruco_detection():
             print("camera is turning")
             rate.sleep()
             self.pub.publish(msg)
-            self.start_time = time.time() - 4  
+        self.start_time = time.time() - 4  
             #if time.time() - mini >4:
                 #break
         msg.data = [0,0,0,0,0,0]
@@ -346,13 +345,15 @@ class Aruco_detection():
             # self.init is set to false (when next search() is called, realsense will first move to the 60 degree maximum)
             # and the counting of time is reset (that is, the next search will happen at least 20s after this block of code)
             #mini = time.time()
+            print("hunch")
             while abs(self.enc_data) > 4:
+                print("while loop 2")
                 msg.data = [0,255,0,0,0,0]
                 rate.sleep()
                 self.pub.publish(msg)
                 #if time.time()-mini>4:
                     #break
-
+            print("last part of search")
             msg.data = [0,0,0,0,0,0]
             self.pub.publish(msg)
             self.init = False
@@ -416,13 +417,14 @@ class Aruco_detection():
 
     def main(self):
         crab_motion_pub.publish(0)
+        print("self.init in main", self.init)
         if (self.ret == False and self.turn == False) or self.init:
             self.search()
             if self.searchcalled:
                 self.process_dict()
         if not self.turn:
             self.ret, distance_list = self.detectAruco() #incorporate no_arucos later
-            if distance_list[0] != None and distance_list[1] != None:
+            if distance_list[0] != None:
                 self.distance = distance_list[0]
                 if min(distance_list)<4:
                     ret,ids, distance = self.aruco_recognition(self.color_image, self.depth_image) #distance is not proper
@@ -434,9 +436,9 @@ class Aruco_detection():
                     # else:
                     #     print("Trying to find aruco ....")
                     #     self.move_straight()
-            else:
-                print("Trying to find aruco ....")
-                self.move_straight()
+        elif self.ret == False:
+            print("Trying to find aruco ....")
+            self.move_straight()
 
         else: # so self.turn = True in this case. 
             #This iteration's idea is to stop at the closest point and do search 
@@ -559,7 +561,7 @@ class Aruco_detection():
         self.z_angle = msg.data
 
     def enc_callback(self,msg):
-        self.enc_data = msg.data[0]
+        self.enc_data = msg.data[5]
 
     def gps_callback(self,msg):
         if(msg.latitude and  msg.longitude):

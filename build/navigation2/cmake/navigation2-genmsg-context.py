@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Goal.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Planner_state.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Enc_dist.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg"
+messages_str = "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Goal.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Planner_state.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Enc_dist.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/gps_data.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/enc_feed.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg;/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg"
 services_str = ""
 pkg_name = "navigation2"
 dependencies_str = "std_msgs"

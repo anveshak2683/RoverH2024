@@ -50,10 +50,10 @@ struct auto_
    typedef uint8_t _arm_type;
   _arm_type arm;
 
-   typedef float _latitude_type;
+   typedef double _latitude_type;
   _latitude_type latitude;
 
-   typedef float _longitude_type;
+   typedef double _longitude_type;
   _longitude_type longitude;
 
    typedef int8_t _setstage_type;
@@ -62,7 +62,7 @@ struct auto_
    typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _text_type;
   _text_type text;
 
-   typedef std::vector<float, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<float>> _aruco_coordinates_type;
+   typedef std::vector<double, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<double>> _aruco_coordinates_type;
   _aruco_coordinates_type aruco_coordinates;
 
    typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _reference_type;
@@ -164,12 +164,12 @@ struct MD5Sum< ::navigation2::auto_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "9fc9b7878baa2559a000819e683c677c";
+    return "65672b1bd9673047ebc0672e3417ec0f";
   }
 
   static const char* value(const ::navigation2::auto_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x9fc9b7878baa2559ULL;
-  static const uint64_t static_value2 = 0xa000819e683c677cULL;
+  static const uint64_t static_value1 = 0x65672b1bd9673047ULL;
+  static const uint64_t static_value2 = 0xebc0672e3417ec0fULL;
 };
 
 template<class ContainerAllocator>
@@ -189,11 +189,11 @@ struct Definition< ::navigation2::auto_<ContainerAllocator> >
   static const char* value()
   {
     return "bool arm\n"
-"float32 latitude \n"
-"float32 longitude\n"
+"float64 latitude \n"
+"float64 longitude\n"
 "int8 setstage \n"
 "string text\n"
-"float32[] aruco_coordinates\n"
+"float64[] aruco_coordinates\n"
 "string reference \n"
 "int8 msg_id\n"
 "\n"
@@ -244,9 +244,9 @@ struct Printer< ::navigation2::auto_<ContainerAllocator> >
     s << indent << "arm: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.arm);
     s << indent << "latitude: ";
-    Printer<float>::stream(s, indent + "  ", v.latitude);
+    Printer<double>::stream(s, indent + "  ", v.latitude);
     s << indent << "longitude: ";
-    Printer<float>::stream(s, indent + "  ", v.longitude);
+    Printer<double>::stream(s, indent + "  ", v.longitude);
     s << indent << "setstage: ";
     Printer<int8_t>::stream(s, indent + "  ", v.setstage);
     s << indent << "text: ";
@@ -255,7 +255,7 @@ struct Printer< ::navigation2::auto_<ContainerAllocator> >
     for (size_t i = 0; i < v.aruco_coordinates.size(); ++i)
     {
       s << indent << "  aruco_coordinates[" << i << "]: ";
-      Printer<float>::stream(s, indent + "  ", v.aruco_coordinates[i]);
+      Printer<double>::stream(s, indent + "  ", v.aruco_coordinates[i]);
     }
     s << indent << "reference: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.reference);

@@ -78,7 +78,7 @@ class Aruco_detection():
             print("1")
             rospy.Subscriber('chatter',std_msgs.Float32,self.yaw_callback)
             print("2")
-            rospy.Subscriber('enc_wheel_odom',std_msgs.Int8,self.enc_callback)
+            rospy.Subscriber('enc_auto',std_msgs.Float32MultiArray,self.enc_callback)
             print("3")  
             rospy.Subscriber('gps_coordinates', gps_data, self.gps_callback)
             print("4")
@@ -558,7 +558,7 @@ class Aruco_detection():
         self.z_angle = msg.data
 
     def enc_callback(self,msg):
-        self.enc_data = msg.data
+        self.enc_data = msg.data[1]
 
     def gps_callback(self,msg):
         if(msg.latitude and  msg.longitude):

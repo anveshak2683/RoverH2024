@@ -5,30 +5,32 @@ import io
 import rscp.message.types as message_types
 import serial
 import rospy
-from std_msgs.msg import Bool, Float32, Int8 ,String 
+from std_msgs.msg import Bool, Float32, Int32 ,String 
 from navigation2.msg import auto
 import sys
 
 class RSCP_Receiver:
     def __init__(self) -> None:
-        rospy.init_node("drive")
+        rospy.init_node("pozhilan",)
         self.data=None
 
         self.rscp_data=auto()
 
-        self.task_completed_sub= rospy.Subscriber("/task_completed", Int8, callback= self.task_completed_callback)
+        self.task_completed_sub= rospy.Subscriber("/task_completed", Int32, callback= self.task_completed_callback)
         self.detection_colour_sub= rospy.Subscriber("/Detection_colour", String, callback= self.detection_callback_colour)
         self.detection_distance_sub = rospy.Subscriber("/Detection_distance", Float32, callback= self.detection_callback_distance)
 
         self.rscp_data_pub=rospy.Publisher("/rscp_data",auto,queue_size=10)
-
+        self.check_received = False
         self.rx=bytearray()
         self.ser=serial.Serial(sys.argv[1], baudrate=115200, timeout=None)
         if self.ser.is_open:
             print(f"Connected to {self.ser.name}")
 
     def task_completed_callback(self,check) :
-        if check.data==1:
+        #print("Callback activated", check.data)       
+        if check.data==1 :
+            # self.check_received = True
             self.frame=self.task_completed_frame()
             self.ser.write(self.frame)
 
@@ -116,7 +118,6 @@ class RSCP_Receiver:
 
     def test_parser(self,bytestream):
         self.rx.extend(bytestream)
-
         frame_parser = FrameParser(self.on_update)
 
         for byte in self.rx:
@@ -127,7 +128,7 @@ class RSCP_Receiver:
 
     def acknowledge_body(self):
         self.body = types.Acknowledge.deserialize(self.data)
-        return (self.body)
+        print(f"Body of the Message = {self.body}")
     
     def armdisarm_body(self):
         self.body=types.ArmDisarm.deserialize(self.data)
@@ -196,11 +197,14 @@ class RSCP_Receiver:
     
     def setparameters_body(self):
         self.body=types.SetParameters.deserialize(self.data)
-        print(f"Body of the Message = {self.body}")     
         self.rscp_data.latitude = self.body.parameters["latitude"]
+        print(self.rscp_data.latitude)
         self.rscp_data.longitude = self.body.parameters["longitude"]
+        self.rscp_data.text = self.body.parameters["text"]
+        self.rscp_data.msg_id = self.msg_id
         self.rscp_data_pub.publish(self.rscp_data)
-        return self.body
+        print(f"Body of the Message = {self.body}")     
+
 
     def create_serialize(self,msg_cls: Type[types.MessageBase], *args, **kwargs):
         msg = msg_cls(*args, **kwargs)
@@ -260,14 +264,8 @@ class RSCP_Receiver:
         return(self.frame)
 
         
-    def setparameters_frame(self):
-        self.body = self.create_serialize(types.SetParameters,{
-            "param1": 1,
-            "latitude": 10.0,
-            "longitude": 20.0,
-            "text": "hello",
-            "array": [1, 2],
-        })
+    def setparameters_frame(self,dictionary):
+        self.body = self.create_serialize(types.SetParameters,dictionary)
         self.frame=Frame.create(0x0A,self.body)
         return(self.frame)
     

@@ -9,6 +9,8 @@
    "PLANNER_STATE"
    "<AUTO>"
    "AUTO"
+   "<DETECTION>"
+   "DETECTION"
    "<ENC_FEED>"
    "ENC_FEED"
    "<GPS_DATA>"

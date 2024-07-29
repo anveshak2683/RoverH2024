@@ -8,7 +8,7 @@ from std_msgs.msg import Float32
 from std_msgs.msg import Int32MultiArray, MultiArrayLayout, MultiArrayDimension, Float32MultiArray
 import queue
 from operator import add
-from navigation.msg import WheelRpm
+#from navigation.msg import WheelRpm
 
 class Drive:
     def __init__(self):
@@ -17,7 +17,7 @@ class Drive:
         rospy.Subscriber("enc_auto", Float32MultiArray, self.enc_callback)
         self.pwm_pub = rospy.Publisher('motor_pwm', Int32MultiArray, queue_size = 10)
         self.control = ['joystick, autonomous']
-        rospy.Subscriber('motion', WheelRpm, self.autonomous_callback)  
+#        rospy.Subscriber('motion', WheelRpm, self.autonomous_callback)  
         self.pwm_msg = Int32MultiArray()
         self.pwm_msg.layout = MultiArrayLayout()
         self.pwm_msg.layout.data_offset = 0
@@ -28,9 +28,10 @@ class Drive:
 
         self.modeupbtn = 7
         self.modednbtn = 6
+        self.max_steer_pwm = 180
 
-        self.fb_axis = 1    #to move rover forward-back
-        self.lr_axis = 2    #to move rover left-right
+        self.fb_axis = 2    #to move rover forward-back
+        self.lr_axis = 1    #to move rover left-right
         self.forward_btn = 4    #to turn all wheels front
         self.parallel_btn = 1   #to turn all wheels 90deg right
         self.rotinplace_btn = 3
@@ -65,7 +66,7 @@ class Drive:
 
         self.steering_complete = True
         self.d_arr = [25,35,50,75,110] #same as galileo drive multipliers 
-        self.s_arr = [255 for i in range(5)] #no modes in steering       
+        self.s_arr = [self.max_steer_pwm for i in range(5)] #no modes in steering       
         self.enc_data = [0,0,0,0]
         self.initial_enc_data = [0,0,0,0]
         self.initial_value_received = False
@@ -91,10 +92,10 @@ class Drive:
 #            self.initial_enc_data[3] = (msg.data)[5]
 #            self.initial_value_received = True
 #        else:
-            self.enc_data[0] = (msg.data)[0]
-            self.enc_data[1] = -(msg.data)[3] 
-            self.enc_data[2] = (msg.data)[1]
-            self.enc_data[3] = (msg.data)[5] 
+            self.enc_data[0] = (msg.data)[0]    #front left
+            self.enc_data[1] = -(msg.data)[3]   #front right
+            self.enc_data[2] = -(msg.data)[2]   #back left
+            self.enc_data[3] = (msg.data)[5]    #back right
             
 
     def joyCallback(self, msg):
@@ -176,7 +177,7 @@ class Drive:
                 print()
                 print("Moving with rot in place velocities")
                 print()
-                temp = int(255*self.rot_with_pwm)
+                temp = int(self.max_steer_pwm*self.rot_with_pwm)
                 self.pwm_msg.data = [0,0,0,0,temp,-temp,-temp,temp]
                 print("Rotating in place with velocity =",temp)
                 print("Enc_angles:- ", self.enc_data)
@@ -276,8 +277,8 @@ class Drive:
                 if (self.print_ctrl == 0):    #printing only at certain intervals, to prevent the screen from being filed with data   #print_ctrl is being incremented in main() every time
                     print("Rotation speed =", int(vel))
             else:
-                velocity = self.d_arr[self.mode] * self.drive_ctrl[1]
-                omega = self.d_arr[self.mode] * self.drive_ctrl[0]
+                velocity = -self.d_arr[self.mode] * self.drive_ctrl[1]
+                omega = -self.d_arr[self.mode] * self.drive_ctrl[0]
 
                 avg_velocity, avg_omega = 0, 0
                 if(self.vel_prev.full() and self.omega_prev.full()):
@@ -303,10 +304,10 @@ class Drive:
                 print()
 
                 #self.pwm_msg.data = [int(avg_velocity-avg_omega), int(avg_velocity+avg_omega), int(avg_velocity-avg_omega), int(avg_velocity+avg_omega), 0,0,0,0]
-                self.pwm_msg.data[0] = int(avg_velocity-avg_omega)
-                self.pwm_msg.data[1] = int(avg_velocity+avg_omega)
+                self.pwm_msg.data[0] = int(-avg_velocity+avg_omega)
+                self.pwm_msg.data[1] = int(-avg_velocity-avg_omega)
                 self.pwm_msg.data[2] = int(avg_velocity-avg_omega)
-                self.pwm_msg.data[3] = int(avg_velocity+avg_omega)
+                self.pwm_msg.data[3] = -int(-avg_velocity-avg_omega)
             
             #standard code
 
@@ -320,9 +321,9 @@ class Drive:
 
 
     def steer(self, initial_angles, final_angles, mode):
-
+        pwm = [0,0,0,0]
+        pwm_temp = [0,0,0,0]
         if(mode == 0):      # relative (encoder will go <final_angle> away from its initial position)
-            pwm = [0,0,0,0]
             while( (abs(self.enc_data[0] - initial_angles[0]) < abs(final_angles[0])-self.error_thresh or abs(self.enc_data[1] - initial_angles[1]) < abs(final_angles[1])-self.error_thresh or abs(self.enc_data[2] - initial_angles[2]) < abs(final_angles[2])-self.error_thresh or abs(self.enc_data[3] - initial_angles[3]) < abs(final_angles[3])-self.error_thresh)  and time.time() - self.start_time <= self.time_thresh): #time_thresh = 10s   #error_thresh = 5 degrees
 
                 if(int(time.time() - self.start_time) * 10 % 2 == 0):  #printing only at certain intervals, to prevent the screen from being filed with data
@@ -331,7 +332,11 @@ class Drive:
                 
                 for i in range(4):
                     if (abs(self.enc_data[i] - initial_angles[i]) < abs(final_angles[i])-self.error_thresh):
-                        pwm[i] = int(self.kp_steer*(final_angles[i]-(self.enc_data[i]-initial_angles[i])))
+                        pwm_temp[i] = int(self.kp_steer*(final_angles[i]-(self.enc_data[i]-initial_angles[i])))
+                        if (pwm_temp[i]>=0):
+                            pwm[i] = min(self.max_steer_pwm,pwm_temp[i])
+                        else:
+                            pwm[i] = max(-self.max_steer_pwm,pwm_temp[i])
                     else:
                         pwm[i] = 0
 
@@ -344,7 +349,6 @@ class Drive:
                                 
 
         elif(mode == 1):        # absolute (encoder will become equal to the final angle specified)
-            pwm = [0,0,0,0]
             while( (abs(self.enc_data[0] - final_angles[0]) > self.error_thresh or abs(self.enc_data[1] - final_angles[1]) > self.error_thresh or abs(self.enc_data[2] - final_angles[2]) > self.error_thresh or abs(self.enc_data[3] - final_angles[3]) > self.error_thresh) and time.time() - self.start_time <= self.time_thresh):   #error_thresh = 5 degrees
 
                 if(int(time.time() - self.start_time) * 10 % 2 == 0):   #printing only at certain intervals, to prevent the screen from being filed with data
@@ -353,7 +357,11 @@ class Drive:
 
                 for i in range(4):
                     if (abs(self.enc_data[i] - final_angles[i]) > self.error_thresh):
-                        pwm[i] = int(self.kp_steer*(final_angles[i]-self.enc_data[i]))
+                        pwm_temp[i] = int(self.kp_steer*(final_angles[i]-self.enc_data[i]))
+                        if (pwm_temp[i]>=0):
+                            pwm[i] = min(self.max_steer_pwm,pwm_temp[i])
+                        else:
+                            pwm[i] = max(-self.max_steer_pwm,pwm_temp[i])
                     else:
                         pwm[i] = 0
 

@@ -1,0 +1,25 @@
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target _navigation2_generate_messages_check_deps_Goal
+[  0%] Built target _navigation2_generate_messages_check_deps_Enc_dist
+[  0%] Built target _navigation2_generate_messages_check_deps_detection
+[  0%] Built target _navigation2_generate_messages_check_deps_Planner_state
+[  0%] Built target _navigation2_generate_messages_check_deps_gps_data
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target _navigation2_generate_messages_check_deps_enc_feed
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target _navigation2_generate_messages_check_deps_auto
+[  0%] Built target _navigation2_generate_messages_check_deps_imu_angle
+[  2%] [34m[1mGenerating Python from MSG navigation2/detection[0m
+[  4%] [34m[1mGenerating C++ code from navigation2/detection.msg[0m
+[  7%] [34m[1mGenerating Lisp code from navigation2/detection.msg[0m
+[  9%] [34m[1mGenerating Javascript code from navigation2/detection.msg[0m
+[ 11%] [34m[1mGenerating EusLisp code from navigation2/detection.msg[0m
+[ 28%] Built target navigation2_generate_messages_lisp
+[ 45%] Built target navigation2_generate_messages_nodejs
+[ 61%] Built target navigation2_generate_messages_cpp
+[ 80%] Built target navigation2_generate_messages_eus
+[ 83%] [34m[1mGenerating Python msg __init__.py for navigation2[0m
+[100%] Built target navigation2_generate_messages_py
+[100%] Built target navigation2_generate_messages
