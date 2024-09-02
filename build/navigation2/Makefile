@@ -549,6 +549,19 @@ _navigation2_generate_messages_check_deps_detection/fast:
 .PHONY : _navigation2_generate_messages_check_deps_detection/fast
 
 #=============================================================================
+# Target rules for targets named _navigation2_generate_messages_check_deps_red
+
+# Build rule for target.
+_navigation2_generate_messages_check_deps_red: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _navigation2_generate_messages_check_deps_red
+.PHONY : _navigation2_generate_messages_check_deps_red
+
+# fast build rule for target.
+_navigation2_generate_messages_check_deps_red/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/_navigation2_generate_messages_check_deps_red.dir/build.make CMakeFiles/_navigation2_generate_messages_check_deps_red.dir/build
+.PHONY : _navigation2_generate_messages_check_deps_red/fast
+
+#=============================================================================
 # Target rules for targets named navigation2_generate_messages_cpp
 
 # Build rule for target.
@@ -751,6 +764,7 @@ help:
 	@echo "... _navigation2_generate_messages_check_deps_enc_feed"
 	@echo "... _navigation2_generate_messages_check_deps_gps_data"
 	@echo "... _navigation2_generate_messages_check_deps_imu_angle"
+	@echo "... _navigation2_generate_messages_check_deps_red"
 	@echo "... clean_test_results"
 	@echo "... download_extra_data"
 	@echo "... doxygen"

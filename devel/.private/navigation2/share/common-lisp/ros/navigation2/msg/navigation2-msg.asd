@@ -20,4 +20,6 @@
     (:file "_package_gps_data" :depends-on ("_package"))
     (:file "imu_angle" :depends-on ("_package_imu_angle"))
     (:file "_package_imu_angle" :depends-on ("_package"))
+    (:file "red" :depends-on ("_package_red"))
+    (:file "_package_red" :depends-on ("_package"))
   ))

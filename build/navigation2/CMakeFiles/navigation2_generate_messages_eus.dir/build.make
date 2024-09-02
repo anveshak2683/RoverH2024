@@ -74,6 +74,7 @@ CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/imu_angle.l
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/auto.l
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/detection.l
+CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/red.l
 CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/manifest.l
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
@@ -120,6 +121,11 @@ CMakeFiles/navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating EusLisp code from navigation2/imu_angle.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg
 
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/red.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/red.l: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating EusLisp code from navigation2/red.msg"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg
+
 navigation2_generate_messages_eus: CMakeFiles/navigation2_generate_messages_eus
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/manifest.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/Enc_dist.l
@@ -130,6 +136,7 @@ navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/enc_feed.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/gps_data.l
 navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/imu_angle.l
+navigation2_generate_messages_eus: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/roseus/ros/navigation2/msg/red.l
 navigation2_generate_messages_eus: CMakeFiles/navigation2_generate_messages_eus.dir/build.make
 .PHONY : navigation2_generate_messages_eus
 

@@ -37,7 +37,7 @@ class Node:
        #HASA
         outbuff[0] = - axes[1]
         outbuff[1] = - axes[0]
-        outbuff[2] = axes[3]
+        outbuff[2] = axes[3]*2
         outbuff[4] = axes[2]
         outbuff[3] = buttons[0]
         outbuff[5] = - buttons[1]

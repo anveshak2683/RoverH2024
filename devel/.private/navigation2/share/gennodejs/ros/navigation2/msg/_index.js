@@ -7,6 +7,7 @@ let enc_feed = require('./enc_feed.js');
 let Enc_dist = require('./Enc_dist.js');
 let auto = require('./auto.js');
 let Goal = require('./Goal.js');
+let red = require('./red.js');
 let Planner_state = require('./Planner_state.js');
 let imu_angle = require('./imu_angle.js');
 
@@ -17,6 +18,7 @@ module.exports = {
   Enc_dist: Enc_dist,
   auto: auto,
   Goal: Goal,
+  red: red,
   Planner_state: Planner_state,
   imu_angle: imu_angle,
 };

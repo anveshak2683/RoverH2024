@@ -17,5 +17,7 @@
    "GPS_DATA"
    "<IMU_ANGLE>"
    "IMU_ANGLE"
+   "<RED>"
+   "RED"
   ))
 

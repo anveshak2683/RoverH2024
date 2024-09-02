@@ -11,7 +11,7 @@ from cv_bridge import CvBridge, CvBridgeError
 
 class track():
     def __init__(self):
-        rospy.Subscriber('/camera/color/image_raw', Image, self.color_callback)
+        rospy.Subscriber('/zed2i/zed_node/rgb/image_rect_color', Image, self.color_callback)
         self.color_came= False
         self.depth_came = False
         self.depth_color = 0.0

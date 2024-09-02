@@ -74,6 +74,7 @@ CMakeFiles/navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/
 CMakeFiles/navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/imu_angle.h
 CMakeFiles/navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/auto.h
 CMakeFiles/navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/detection.h
+CMakeFiles/navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/red.h
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/Enc_dist.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/Enc_dist.h: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Enc_dist.msg
@@ -123,6 +124,12 @@ CMakeFiles/navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from navigation2/imu_angle.msg"
 	cd /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2 && /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2 -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/red.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/red.h: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/red.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from navigation2/red.msg"
+	cd /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2 && /media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2 -e /opt/ros/noetic/share/gencpp/cmake/..
+
 navigation2_generate_messages_cpp: CMakeFiles/navigation2_generate_messages_cpp
 navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/Enc_dist.h
 navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/Goal.h
@@ -132,6 +139,7 @@ navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024
 navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/enc_feed.h
 navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/gps_data.h
 navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/imu_angle.h
+navigation2_generate_messages_cpp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include/navigation2/red.h
 navigation2_generate_messages_cpp: CMakeFiles/navigation2_generate_messages_cpp.dir/build.make
 .PHONY : navigation2_generate_messages_cpp
 

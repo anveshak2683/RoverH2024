@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/enc_feed.lisp"
   "/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/gps_data.lisp"
   "/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/imu_angle.lisp"
+  "/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/red.lisp"
   "CMakeFiles/navigation2_generate_messages_lisp"
 )
 

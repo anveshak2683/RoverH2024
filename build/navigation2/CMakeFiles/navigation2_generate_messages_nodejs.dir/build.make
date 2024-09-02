@@ -74,6 +74,7 @@ CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvid
 CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/imu_angle.js
 CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/auto.js
 CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/detection.js
+CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/red.js
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Enc_dist.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Enc_dist.js: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Enc_dist.msg
@@ -115,6 +116,11 @@ CMakeFiles/navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvid
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Javascript code from navigation2/imu_angle.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg
 
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/red.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/red.js: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Javascript code from navigation2/red.msg"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg
+
 navigation2_generate_messages_nodejs: CMakeFiles/navigation2_generate_messages_nodejs
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Enc_dist.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/Goal.js
@@ -124,6 +130,7 @@ navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/enc_feed.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/gps_data.js
 navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/imu_angle.js
+navigation2_generate_messages_nodejs: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/gennodejs/ros/navigation2/msg/red.js
 navigation2_generate_messages_nodejs: CMakeFiles/navigation2_generate_messages_nodejs.dir/build.make
 .PHONY : navigation2_generate_messages_nodejs
 

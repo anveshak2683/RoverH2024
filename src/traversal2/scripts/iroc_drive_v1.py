@@ -146,7 +146,7 @@ class Drive:
 
                 if(self.state == False): #without autonomous, where velocity and omega need to be computed 
                     velocity = self.s_arr[self.mode] * self.drive_ctrl[0]
-                    omega = self.s_arr[self.mode] * self.drive_ctrl[1]
+                    omega = -self.s_arr[self.mode] * self.drive_ctrl[1]
                 else:
                     velocity = self.autonomous_vel
                     omega = self.autonomous_omega
@@ -175,7 +175,7 @@ class Drive:
                 print("Mode: ", self.mode)
                 print()
 
-                self.pwm_msg.data = [int(avg_velocity+avg_omega), -int(avg_velocity-avg_omega), -int(avg_velocity+avg_omega), -int(avg_velocity-avg_omega), 0,0,0,0]      #convention at the top 
+                self.pwm_msg.data = [-int(avg_velocity+avg_omega), -int(avg_velocity-avg_omega),int(avg_velocity+avg_omega), -int(avg_velocity-avg_omega), 0,0,0,0]      #convention at the top 
             
             #standard code
             self.pwm_msg.layout = MultiArrayLayout()

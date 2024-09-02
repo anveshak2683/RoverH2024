@@ -58,6 +58,7 @@ find_package(catkin REQUIRED COMPONENTS
    imu_angle.msg
    auto.msg
    detection.msg
+   red.msg
  )
 
 ## Generate services in the 'srv' folder

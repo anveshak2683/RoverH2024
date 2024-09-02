@@ -277,8 +277,8 @@ class Drive:
                 if (self.print_ctrl == 0):    #printing only at certain intervals, to prevent the screen from being filed with data   #print_ctrl is being incremented in main() every time
                     print("Rotation speed =", int(vel))
             else:
-                velocity = -self.d_arr[self.mode] * self.drive_ctrl[1]
-                omega = -self.d_arr[self.mode] * self.drive_ctrl[0]
+                omega = -self.d_arr[self.mode] * self.drive_ctrl[1]
+                velocity = -self.d_arr[self.mode] * self.drive_ctrl[0]
 
                 avg_velocity, avg_omega = 0, 0
                 if(self.vel_prev.full() and self.omega_prev.full()):

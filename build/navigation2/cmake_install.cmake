@@ -143,6 +143,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg"
     "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/auto.msg"
     "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/detection.msg"
+    "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg"
     )
 endif()
 

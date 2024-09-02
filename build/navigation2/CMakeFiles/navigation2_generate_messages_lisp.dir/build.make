@@ -74,6 +74,7 @@ CMakeFiles/navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia
 CMakeFiles/navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/imu_angle.lisp
 CMakeFiles/navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/auto.lisp
 CMakeFiles/navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/detection.lisp
+CMakeFiles/navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/red.lisp
 
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/Enc_dist.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
 /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/Enc_dist.lisp: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/Enc_dist.msg
@@ -115,6 +116,11 @@ CMakeFiles/navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Lisp code from navigation2/imu_angle.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/imu_angle.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg
 
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/red.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/red.lisp: /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/nvidia/galileo/home/nvidia/galileo2024/build/navigation2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Lisp code from navigation2/red.msg"
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg/red.msg -Inavigation2:/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p navigation2 -o /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg
+
 navigation2_generate_messages_lisp: CMakeFiles/navigation2_generate_messages_lisp
 navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/Enc_dist.lisp
 navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/Goal.lisp
@@ -124,6 +130,7 @@ navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo202
 navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/enc_feed.lisp
 navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/gps_data.lisp
 navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/imu_angle.lisp
+navigation2_generate_messages_lisp: /media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/red.lisp
 navigation2_generate_messages_lisp: CMakeFiles/navigation2_generate_messages_lisp.dir/build.make
 .PHONY : navigation2_generate_messages_lisp
 
