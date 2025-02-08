@@ -94,11 +94,11 @@ class RoverWheelPositionGUI:
         self.diff_label.place(x=900, y=1000,anchor='center')
 
     def enc_callback(self, msg):
-        self.list = [msg.data[0], -msg.data[3], -msg.data[2], msg.data[5]]
+        self.list = [msg.data[1], -msg.data[4], msg.data[0], msg.data[5]]
         self.wheel()
 
     def pwm_callback(self, msgs):
-        self.list2 = [-msgs.data[0],-msgs.data[1],-msgs.data[2],-msgs.data[3]]
+        self.list2 = [msgs.data[0],msgs.data[1],msgs.data[2],msgs.data[3]]
         self.arrow()
 
     def gui_callback(self, guimsg):

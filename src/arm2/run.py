@@ -21,7 +21,7 @@ class Node:
         self.auto_outbuff = msg.data
     
     def joyCallback_0 (self, msg):
-        self.outbuff = [ int (msg.axes[i] * 0xCF) for i in range(4) ]
+        self.outbuff = [ int (msg.axes[i] * 0xFF) for i in range(4) ]
         self.outbuff += [ (msg.buttons[i] - msg.buttons[i+2]) * 0xFF for i in range(4, 6) ]
 
     def joyCallback (self, msg):
@@ -30,7 +30,7 @@ class Node:
        # outbuff = [ int (msg.axes[i] * 0xFF) for i in range(4) ]
        # outbuff += [ (msg.buttons[i] - msg.buttons[i+2]) * 0xFF for i in range(4, 6) ]
         
-        axes = [ int (msg.axes[i] * 0x32) for i in range(5) ]
+        axes = [ int (msg.axes[i] * 0x9B) for i in range(5) ]
         buttons = [ int((msg.axes[7])*255)]
         buttons.append(int((msg.axes[6])*255))
        
@@ -42,7 +42,7 @@ class Node:
         outbuff[3] = buttons[0]
         outbuff[5] = - buttons[1]
 
-        if msg.buttons[0] == 1:
+        if msg.buttons[7] == 1:
             self.autonomous_mode = not self.autonomous_mode
 
         

@@ -7,7 +7,7 @@ import sensor_msgs.msg as sensor_msgs
 class Node:
     def __init__(self):
         
-        self.outbuff = [0] * 4
+        self.outbuff = [0] *6 
         
         self.pub = rospy.Publisher('stm_write', std_msgs.Int32MultiArray, queue_size=10)
         rospy.init_node('arm_drive')
@@ -20,12 +20,12 @@ class Node:
         buttons = [ (msg.buttons[1] - msg.buttons[3])*255]
         buttons.append((msg.buttons[0] - msg.buttons[4])*255)
         
-        outbuff[0] =  - axes[1]
-        outbuff[1] =  - axes[0]
-        outbuff[2] = -buttons[1] - buttons[0]   #buttons[0] is 2 buttons, say X and A. If both outbuff[2] and outbuff[5] are positive, roll (say) will happen clockwise; if they are -ve, it will happen anti-clockwise. If [2] is +ve and [5] is -ve, pitch will happen (say) up and vice versa
-        outbuff[3] = -axes[3]
-        outbuff[4] = axes[2]
-        outbuff[5] = -buttons[1] + buttons[0]
+        outbuff[0] = -axes[1] #Shoulder
+        outbuff[1] = axes[0] #Base
+        outbuff[2] = buttons[1]+  buttons[0]   #buttons[0] is 2 buttons, say X and A. If both outbuff[2] and outbuff[5] are positive, roll (say) will happen clockwise; if they are -ve, it will happen anti-clockwise. If [2] is +ve and [5] is -ve, pitch will happen (say) up and vice versa
+        outbuff[3] = axes[3] #Elbow 
+        outbuff[4] =- axes[2] #Gripper
+        outbuff[5] =   buttons[1] -  buttons[0]
         
         self.outbuff = outbuff
         print (self.outbuff)
@@ -49,7 +49,7 @@ class Node:
         
         msg.layout.dim = [ std_msgs.MultiArrayDimension() ]
         msg.layout.dim[0].size = msg.layout.dim[0].stride = len(msg.data)
-        msg.layout.dim[0].label = 'write'
+        msg.layout.dim[-1].label = 'write'
         
         return msg
 

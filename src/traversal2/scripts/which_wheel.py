@@ -22,6 +22,7 @@ class Drive:
         rospy.init_node("drive_arc")
         self.pwm_pub = rospy.Publisher('motor_pwm', Int32MultiArray, queue_size = 10)
         rospy.Subscriber("joy", Joy, self.joyCallback)
+        self.pwm_value_str=127
 
         self.drive_mode = True
         self.dr_pwm = [0,0,0,0]
@@ -68,7 +69,7 @@ class Drive:
         if (self.drive_mode == True):
             self.pwm_msg.data = [int(30*self.dr_pwm[0]), int(30*self.dr_pwm[1]), int(30*self.dr_pwm[2]), int(30*self.dr_pwm[3]), 0, 0, 0, 0]
         else:
-            self.pwm_msg.data = [0, 0, 0, 0, int(255*self.str_pwm[0]), int(255*self.str_pwm[1]), int(255*self.str_pwm[2]), int(255*self.str_pwm[3])]
+            self.pwm_msg.data = [0, 0, 0, 0, int(self.pwm_value_str*self.str_pwm[0]), int(self.pwm_value_str*self.str_pwm[1]), int(self.pwm_value_str*self.str_pwm[2]), int(self.pwm_value_str*self.str_pwm[3])]
 
         self.pwm_msg.layout = MultiArrayLayout()
         self.pwm_msg.layout.data_offset = 0

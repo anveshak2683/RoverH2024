@@ -93,17 +93,17 @@ class Drive:
             self.enc_data[0] = (msg.data)[0]
             self.enc_data[1] = (msg.data)[3]
             self.enc_data[2] = (msg.data)[2]
-            self.enc_data[3] = (msg.data)[5]
+            self.enc_data[3] = (msg.data)[4]
             self.initial_enc_data[0] = (msg.data)[0]
             self.initial_enc_data[1] = (msg.data)[3]
             self.initial_enc_data[2] = (msg.data)[2]
-            self.initial_enc_data[3] = (msg.data)[5]
+            self.initial_enc_data[3] = (msg.data)[4]
             self.initial_value_received = True
         else:
             self.enc_data[0] = (msg.data)[0] - self.initial_enc_data[0]
             self.enc_data[1] = (msg.data)[3]- self.initial_enc_data[1] 
             self.enc_data[2] = (msg.data)[2]- self.initial_enc_data[2] 
-            self.enc_data[3] = (msg.data)[5]- self.initial_enc_data[3] 
+            self.enc_data[3] = (msg.data)[3]- self.initial_enc_data[3] 
             
 
     def joyCallback(self, msg):
@@ -315,8 +315,8 @@ class Drive:
                     self.gui_list.data[15]= int(vel)
                     print("Rotation speed =", int(vel))
             else:
-                velocity = -self.d_arr[self.mode] * self.drive_ctrl[1]
-                omega = -self.d_arr[self.mode] * self.drive_ctrl[0]
+                velocity = self.d_arr[self.mode] * self.drive_ctrl[1]
+                omega = self.d_arr[self.mode] * self.drive_ctrl[0]
 
                 avg_velocity, avg_omega = 0, 0
                 if(self.vel_prev.full() and self.omega_prev.full()):

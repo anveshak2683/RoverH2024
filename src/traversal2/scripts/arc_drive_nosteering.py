@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#arc_drive code
 #convention of wheels is [front left, front right, back left, back right]
 
 import rospy
@@ -145,11 +145,11 @@ class Drive:
                 omega = 0
 
                 if(self.state == False): #without autonomous, where velocity and omega need to be computed 
-                    omega = self.s_arr[self.mode] * self.drive_ctrl[0]
-                    velocity = self.s_arr[self.mode] * self.drive_ctrl[1]
+                    velocity = self.s_arr[self.mode] * self.drive_ctrl[0]
+                    omega = self.s_arr[self.mode] * self.drive_ctrl[1]
                 else:
-                    velocity =self.autonomous_vel
-                    omega = self.autonomous_omega
+                    omega =self.autonomous_vel
+                    velocity = self.autonomous_omega
 
                 #for smooth starting and stopping (moving average)
                 avg_velocity, avg_omega = 0, 0
@@ -175,7 +175,7 @@ class Drive:
                 print("Mode: ", self.mode)
                 print()
 
-                self.pwm_msg.data = [-int(avg_velocity-avg_omega), int(avg_velocity+avg_omega), -int(avg_velocity-avg_omega), int(avg_velocity+avg_omega), 0,0,0,0]      #convention at the top 
+                self.pwm_msg.data = [-int(avg_velocity-avg_omega), int(avg_velocity+avg_omega), -int(avg_velocity-avg_omega), -int(avg_velocity+avg_omega), 0,0,0,0]      #convention at the top 
             
             #standard code
             self.pwm_msg.layout = MultiArrayLayout()

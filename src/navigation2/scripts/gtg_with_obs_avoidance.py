@@ -24,9 +24,9 @@ from navigation2.msg import red
 
 class GoToGoal():
     def __init__(self):
-        self.goals_x = [0.6,3.6,7.8,3.6]
-        self.goals_y = [4.8,3.6,2.4,3.6]
-        #self.vel_publisher = rospy.Publisher('/motion', WheelRpm, queue_size = 10)
+        self.goals_x = [5.0,5.0,8.0,10.0]
+        self.goals_y = [0.1,2.0,0.1,2.0]
+        self.vel_publisher = rospy.Publisher('/motion', WheelRpm, queue_size = 10)
         self.obstacle_detected_pub = rospy.Publisher('/pranav_red', red, queue_size = 10)
         rospy.Subscriber('/scan', LaserScan, self.laser_callback)
         rospy.Subscriber('/goal_ik',Int32,self.ik_red_callback)
@@ -90,7 +90,7 @@ class GoToGoal():
         self.ik_start_anuj_prev=0
 
         #rospy.Subscriber('/intel/depth/image_raw', Image, self.depth_callback)
-        rospy.Subscriber('/robot/dlo/odom_node/odom', Odometry, self.odom_callback)
+        rospy.Subscriber('/zed2i/zed_node/odom', Odometry, self.odom_callback)
 
         #subscribers at the end to avoid object has no attribute
     
@@ -225,7 +225,7 @@ class GoToGoal():
         print("goal distance in metres", goal_distance)
         print("self.goal_counter", self.goal_counter)
         omega = int(kp*(self.yaw_angle - self.desired_angle_gtg))
-        desired_vel = int(kp_linear * goal_distance)
+        desired_vel = self.move_speed
         g = WheelRpm()
         g.vel = min(desired_vel, self.move_speed)
 
@@ -243,7 +243,7 @@ class GoToGoal():
             g.omega = 0
         vel_msg = WheelRpm()
         a_straight = self.tensor[self.right_45:self.left_45]
-        if(goal_distance < 0.4):
+        if(goal_distance < 0.2):
             print(f"Goal {self.goal_counter} reached!")
             self.goal_counter +=1 #increment, since goal is reached
         #print(self.left_45, self.right_45)
@@ -342,7 +342,7 @@ class GoToGoal():
             a_with_dist = torch.nonzero(a).to(device)
             vel_msg = WheelRpm()
             
-            if(abs(self.displacement_y) < 20) and self.y_disp_too_less == False:
+            if(abs(self.displacement_y) < 10) and self.y_disp_too_less == False:
                 self.third_stop = True
             if(self.y_disp_too_less == True) and self.displacement_y > 10:
                 self.y_disp_too_less = False
@@ -400,8 +400,9 @@ class GoToGoal():
         else:
             vel_msg.vel = 0
             vel_msg.omega  = 0
+        vel_msg.omega = -vel_msg.omega
         print(f"Odom = ({self.current_pose_x}, {self.current_pose_y}), Velocity given = {vel_msg.vel}, Omega given = {vel_msg.omega}, Yaw Angle = {self.yaw_angle}")
-        #self.vel_publisher.publish(vel_msg)
+        self.vel_publisher.publish(vel_msg)
         red_value = red()
         red_value.vel = vel_msg.vel
         red_value.omega = vel_msg.omega

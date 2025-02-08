@@ -61,7 +61,7 @@ class GoToGoal():
         self.right_45 = 0 #for lidar
         self.middle_0 = 0
         self.initial_less_than_2m_points = 0 #to keep rest of the code as a function of the original number of points less than 2m detects
-        self.turn_speed = 15
+        self.turn_speed = 60
         self.move_speed = 30
 
         self.time_turn = 0 #to keep a track of turn timing
@@ -85,10 +85,9 @@ class GoToGoal():
         self.aligned_center = False
         self.lr_points = 10
         #rospy.Subscriber('/intel/depth/image_raw', Image, self.depth_callback)
-        rospy.Subscriber('/imu', Imu, self.angle_callback)
-        rospy.Subscriber('/odomety/filtered', Odometry, self.odom_callback)
-
-        self.execute_goal=False
+        rospy.Subscriber('/zed2i/zed_node/imu/data', Imu, self.angle_callback)
+        rospy.Subscriber('/zed2i/zed_node/odom', Odometry, self.odom_callback)
+        self.execute_goal=True
 
         #subscribers at the end to avoid object has no attribute
     def check_callback(self,msg):
@@ -101,8 +100,8 @@ class GoToGoal():
         self.tensor_prime = torch.tensor(msg.ranges).to(device)
         self.num_scans = len(msg.ranges)
         self.angle_max = msg.angle_max*180/math.pi
-            self.current_latitude = msg.latitude
-            self.current_longitude = msg.longitude
+        self.current_latitude = msg.latitude
+        self.current_longitude = msg.longitude
 
     def laser_callback(self,msg):
         self.tensor_prime = torch.tensor(msg.ranges).to(device)

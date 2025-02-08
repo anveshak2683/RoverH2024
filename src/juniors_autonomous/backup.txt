@@ -1,0 +1,809 @@
+hey! self.distance = 10 10.0
+hey! self.distance = 10 10.0
+hey! self.distance = 10 10.0
+hey! self.distance = 10 10.0
+hey! self.distance = 10 10.0
+1
+2
+3
+4
+color
+depth
+goin in
+entered try1
+[27 29 30]
+goin in
+entered try1
+[27 29 30]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[23 25 26]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[27 29 30]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[23 25 26]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[23 25 25]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 27 31]
+entered try1
+[24 26 27]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[27 28 32]
+entered try1
+[27 29 30]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[24 26 27]
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[27 29 30]
+entered try1
+[24 26 27]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[27 29 30]
+entered try1
+[25 26 30]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[23 25 26]
+entered try1
+[27 29 30]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[27 29 30]
+entered try1
+[25 26 30]
+entered try1
+[24 26 27]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[24 26 27]
+entered try1
+[24 26 27]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[27 29 30]
+entered try1
+[25 27 28]
+entered try1
+[24 26 27]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[26 27 31]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[24 26 27]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[24 26 27]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[25 26 30]
+entered try1
+[24 26 27]
+entered try1
+[25 26 30]
+entered try1
+[24 26 27]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[27 29 30]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+
+entered try1
+[27 29 30]
+entered try1
+[24 26 27]
+entered try1
+[23 25 26]
+entered try1
+[27 29 30]
+entered try1
+[25 26 30]
+entered try1
+[25 26 30]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[24 26 27]
+entered try1
+[24 26 27]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[23 25 26]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[23 25 26]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[27 29 30]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+0: 384x640 (no detections), 102.5ms
+Speed: 9.5ms preprocess, 102.5ms inference, 12.7ms postprocess per image at shape (1, 3, 384, 640)
+Entered Get Box
+Inside For loop
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+entered try1
+[26 27 31]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+entered try1
+[27 29 30]
+entered try1
+[26 28 29]
+entered try1
+[25 26 30]
+Exited Forloop
+Im in else block of main
+Entered process data
+x: 0
+y: 0
+nan
+Depth = nan, center = 0.0
+Trying to detect arrow...
+correcting drift with omega = 10
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 25 29]
+entered try1
+[26 27 31]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[27 29 30]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[28 30 31]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+entered try1
+[27 29 30]
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+correcting drift with omega = 10
+[25 27 28]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[28 30 31]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[27 29 30]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[27 28 32]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[27 28 32]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[26 28 28]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+entered try1
+[27 29 30]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[28 30 31]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[24 25 29]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[27 29 30]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[26 27 31]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[23 25 26]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[25 26 30]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[26 28 29]
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[24 26 27]
+correcting drift with omega = 10
+entered try1
+[25 27 28]
+entered try1
+[25 27 28]
+correcting drift with omega = 10
+entered try1
+[26 27 31]
+correcting drift with omega = 10
+entered try1
+[23 25 26]
+entered try1
+[26 27 31]
+correcting drift with omega = 10
+entered try1
+[26 28 29]

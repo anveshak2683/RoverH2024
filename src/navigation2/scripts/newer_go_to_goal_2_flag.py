@@ -100,11 +100,12 @@ class GoToGoal():
         self.aligned_center = False
         self.lr_points = 10
         #rospy.Subscriber('/intel/depth/image_raw', Image, self.depth_callback)
-        rospy.Subscriber('/imu', Imu, self.angle_callback)
-        rospy.Subscriber('/odomety/filtered', Odometry, self.odom_callback)
+        rospy.Subscriber('/zed2i/zed_node/imu/data', Imu, self.angle_callback)
+        rospy.Subscriber('/zed2i/zed_node/odom', Odometry, self.odom_callback)
+
         rospy.Subscriber('/gps_coordinates',NavSatFix, self.gps_callback)
 
-        self.execute_goal=False
+        self.execute_goal=True
 
         #subscribers at the end to avoid object has no attribute
     def check_callback(self,msg):

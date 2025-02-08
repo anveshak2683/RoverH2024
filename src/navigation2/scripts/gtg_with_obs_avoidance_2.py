@@ -24,9 +24,11 @@ from navigation2.msg import red
 
 class GoToGoal():
     def __init__(self):
-        self.goals_x = [3.5,11.5,9.9,11.5,8,11.5,8.83]
-        self.goals_y = [6.5,8.3,1.35,8.3,6,8.3,8.3]
-        #self.vel_publisher = rospy.Publisher('/motion', WheelRpm, queue_size = 10)
+        #self.goals_x = [3.5,11.5,9.9,11.5,8,11.5,8.83]
+        #self.goals_y = [6.5,8.3,1.35,8.3,6,8.3,8.3]
+        self.goals_x = [5.0]
+        self.goals_y = [0.0]
+        self.vel_publisher = rospy.Publisher('/motion', WheelRpm, queue_size = 10)
         self.obstacle_detected_pub = rospy.Publisher('/pranav_red', red, queue_size = 10)
         rospy.Subscriber('/scan', LaserScan, self.laser_callback)
         rospy.Subscriber('/goal_ik',Int32,self.ik_red_callback)
@@ -62,7 +64,7 @@ class GoToGoal():
         self.right_90 = 0
         self.right_45 = 0 #for lidar
         self.middle_0 = 0
-        self.turn_speed = -50
+        self.turn_speed = 50
         self.move_speed = 40
         self.goal_counter = 0
         self.time_turn = 0 #to keep a track of turn timing
@@ -90,7 +92,7 @@ class GoToGoal():
         self.ik_start_anuj_prev=0
 
         #rospy.Subscriber('/intel/depth/image_raw', Image, self.depth_callback)
-        rospy.Subscriber('/robot/dlo/odom_node/odom', Odometry, self.odom_callback)
+        rospy.Subscriber('/zed2i/zed_node/odom', Odometry, self.odom_callback)
 
         #subscribers at the end to avoid object has no attribute
     
@@ -400,7 +402,7 @@ class GoToGoal():
             vel_msg.vel = 0
             vel_msg.omega  = 0
         print(f"Odom = ({self.current_pose_x}, {self.current_pose_y}), Velocity given = {vel_msg.vel}, Omega given = {vel_msg.omega}, Yaw Angle = {self.yaw_angle}")
-        #self.vel_publisher.publish(vel_msg)
+        self.vel_publisher.publish(vel_msg)
         red_value = red()
         red_value.vel = vel_msg.vel
         red_value.omega = vel_msg.omega

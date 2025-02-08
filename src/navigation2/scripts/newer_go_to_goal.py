@@ -21,7 +21,7 @@ import time
 
 class GoToGoal():
     def __init__(self):
-        self.x_pos = 5
+        self.x_pos = 10
         self.y_pos = 0
         self.vel_publisher = rospy.Publisher('/motion', WheelRpm, queue_size = 10)
         rospy.Subscriber('/scan', LaserScan, self.laser_callback)
@@ -59,8 +59,8 @@ class GoToGoal():
         self.right_45 = 0 #for lidar
         self.middle_0 = 0
         self.initial_less_than_2m_points = 0 #to keep rest of the code as a function of the original number of points less than 2m detects
-        self.turn_speed = 15
-        self.move_speed = 30
+        self.turn_speed = 60
+        self.move_speed = 40
 
         self.time_turn = 0 #to keep a track of turn timing
         self.turn_timing_count_start = False
@@ -82,8 +82,8 @@ class GoToGoal():
         self.aligned_center = False
         self.lr_points = 10
         #rospy.Subscriber('/intel/depth/image_raw', Image, self.depth_callback)
-        rospy.Subscriber('/imu', Imu, self.angle_callback)
-        rospy.Subscriber('/odomety/filtered', Odometry, self.odom_callback)
+        rospy.Subscriber('/zed2i/zed_node/imu/data', Imu, self.angle_callback)
+        rospy.Subscriber('/zed2i/zed_node/odom', Odometry, self.odom_callback)
 
         #subscribers at the end to avoid object has no attribute
 

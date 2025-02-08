@@ -1,21 +1,28 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python4
 import rospy
 import copy
 from sensor_msgs.msg import Joy
 import time
-from std_msgs.msg import Int8
+from std_msgs.msg import Int8, Bool
 from std_msgs.msg import Float32
 from std_msgs.msg import Int32MultiArray, MultiArrayLayout, MultiArrayDimension, Float32MultiArray
 import queue
 from operator import add
-#from navigation.msg import WheelRpm
+from traversal.msg import WheelRpm
 
 class Drive:
     def __init__(self):
+        #positive pwm must be front for drive wheels and right for steering. Positive encoders must be plus for right.
+        self.init_dir = [1,1,1,1,1,1,1,1]   #lrlr drive front,back and lrlr steering front back
+        self.max_steer_pwm = 180
+
         rospy.init_node("drive_arc")
         rospy.Subscriber("joy", Joy, self.joyCallback)
         rospy.Subscriber("enc_auto", Float32MultiArray, self.enc_callback)
         self.pwm_pub = rospy.Publisher('motor_pwm', Int32MultiArray, queue_size = 10)
+        self.state_pub = rospy.Publisher('state', Bool, queue_size = 10)
+        rospy.Subscriber("/motion", WheelRpm, self.autonomous_motion_callback, queue_size = 10)
+
         self.control = ['joystick, autonomous']
 #        rospy.Subscriber('motion', WheelRpm, self.autonomous_callback)  
         self.pwm_msg = Int32MultiArray()
@@ -25,15 +32,13 @@ class Drive:
         self.pwm_msg.layout.dim[0].size = self.pwm_msg.layout.dim[0].stride = len(self.pwm_msg.data)
         self.pwm_msg.layout.dim[0].label = 'write'
 
-
         self.modeupbtn = 7
         self.modednbtn = 6
-        self.max_steer_pwm = 180
 
         self.fb_axis = 2    #to move rover forward-back
         self.lr_axis = 1    #to move rover left-right
         self.forward_btn = 4    #to turn all wheels front
-        self.parallel_btn = 1   #to turn all wheels 90deg right
+        self.parallel_btn = 1   #to turn all wheels deg right
         self.rotinplace_btn = 3
 
         self.steer_unlock_axis = 4
@@ -45,7 +50,6 @@ class Drive:
         self.fr_wheel_axis = 3
         self.bl_wheel_axis = 0
         self.br_wheel_axis = 2
-        
 
         self.drive_ctrl = [0,0] #drive fb and lr axes
         self.steering_ctrl_locked = [0,0,0] #gives configurations for steering (buttons)
@@ -65,10 +69,10 @@ class Drive:
         self.print_ctrl = self.prints_per_iter
 
         self.steering_complete = True
-        self.d_arr = [25,35,50,75,110] #same as galileo drive multipliers 
+        self.d_arr = [35,50,75,110,150] #same as galileo drive multipliers 
         self.s_arr = [self.max_steer_pwm for i in range(5)] #no modes in steering       
-        self.enc_data = [0,0,0,0]
-        self.initial_enc_data = [0,0,0,0]
+        self.enc_data = [0,0,0,0,0,0]
+        self.initial_enc_data = [0,0,0,0,0,0]
         self.initial_value_received = False
         self.kp_steer = 30
         self.qsize = 5
@@ -80,23 +84,25 @@ class Drive:
 
         self.rotinplace = False
 
+        self.state_ctrl_btn = 0
+        self.state = False
+        self.autonomous_vel = 0
+        self.autonomous_omega = 0
+        self.crab_rotate = False
+    
+    def autonomous_motion_callback(self, msg):
+        if(self.state == True):
+            self.autonomous_vel = -msg.vel
+            self.autonomous_omega = msg.omega
+            self.crab_rotate = msg.hb
+
     def enc_callback(self,msg):
-#        if(self.initial_value_received == False):
-#            self.enc_data[0] = (msg.data)[0]
-#            self.enc_data[1] = (msg.data)[3]
-#            self.enc_data[2] = (msg.data)[1]
-#            self.enc_data[3] = (msg.data)[5]
-#            self.initial_enc_data[0] = (msg.data)[0]
-#            self.initial_enc_data[1] = (msg.data)[3]
-#            self.initial_enc_data[2] = (msg.data)[1]
-#            self.initial_enc_data[3] = (msg.data)[5]
-#            self.initial_value_received = True
-#        else:
             self.enc_data[0] = (msg.data)[0]    #front left
             self.enc_data[1] = -(msg.data)[3]   #front right
             self.enc_data[2] = -(msg.data)[2]   #back left
-            self.enc_data[3] = (msg.data)[5]    #back right
-            
+            self.enc_data[3] = (msg.data)[4]    #back right
+            self.enc_data[4] = (msg.data)[1]
+            self.enc_data[5] = (msg.data)[5]
 
     def joyCallback(self, msg):
         
@@ -111,31 +117,45 @@ class Drive:
             self.steering_ctrl_locked = [msg.buttons[self.forward_btn], msg.buttons[self.parallel_btn], msg.buttons[self.rotinplace_btn]]
             self.drive_ctrl = [msg.axes[self.fb_axis], msg.axes[self.lr_axis]]
             self.rot_with_pwm = msg.axes[3]
-            
+           # self.steering_ctrl_pwm = [msg.axes[self.steer_samedir_axis], msg.axes[self.steer_oppdir_axis]]
         elif (self.steer_islocked == False and self.full_potential_islocked == True):
+           # self.steering_ctrl_locked = [msg.buttons[self.forward_btn], msg.buttons[self.parallel_btn], msg.buttons[self.rotinplace_btn]]
             self.steering_ctrl_unlocked = [msg.buttons[self.forward_btn],msg.buttons[self.parallel_btn]]    #for relative 45 (or any function buttons should perform)
             self.steering_ctrl_pwm = [msg.axes[self.steer_samedir_axis], msg.axes[self.steer_oppdir_axis]]  #for pwm to all motors
+
+            
 
         elif (self.steer_islocked == True and self.full_potential_islocked == False):   #steer is locked, but full potential is unlocked
             #Add functionality for buttons in this state if needed
             self.full_potential_pwm = [msg.axes[self.fl_wheel_axis], msg.axes[self.fr_wheel_axis], msg.axes[self.bl_wheel_axis], msg.axes[self.br_wheel_axis]]
 
         #it should not enter else only
-
         if (msg.axes[self.steer_unlock_axis] == -1.0):  #Lock full potential when steering pwm is being toggled
             self.steer_islocked = not self.steer_islocked
             self.full_potential_islocked = True
 
+
         elif (msg.axes[self.full_potential_unlock_axis] == -1.0):   #Lock steering pwm when indiv control is being toggled
             self.full_potential_islocked = not self.full_potential_islocked
             self.steer_islocked = True
- 
+
+
+        if(msg.buttons[self.state_ctrl_btn] == 1):
+            self.state = not self.state
+
     def spin(self):
         rate = rospy.Rate(10)
         while not rospy.is_shutdown():
-            self.main()
+            if(self.state == False):
+                self.main()
+            else:
+                print("Rover in Autonomous Mode")
+                self.drive()
+                self.print_ctrl = (self.print_ctrl+1) % self.prints_per_iter
+
             rate.sleep()
             self.pwm_pub.publish(self.pwm_msg)
+            self.state_pub.publish(self.state)
 
     def main(self):
         self.steering()
@@ -178,7 +198,7 @@ class Drive:
                 print("Moving with rot in place velocities")
                 print()
                 temp = int(self.max_steer_pwm*self.rot_with_pwm)
-                self.pwm_msg.data = [0,0,0,0,temp,-temp,-temp,temp]
+                self.pwm_msg.data = [0,0,0,0, temp*self.init_dir[4], - temp*self.init_dir[5], - temp*self.init_dir[6], temp*self.init_dir[7]]
                 print("Rotating in place with velocity =",temp)
                 print("Enc_angles:- ", self.enc_data)
 
@@ -210,7 +230,7 @@ class Drive:
                 self.rotinplace = False
                 self.start_time = time.time()
                 temp = -int(self.s_arr[self.mode] * self.steering_ctrl_pwm[0])
-                self.pwm_msg.data = [0,0,0,0,temp,temp,temp,temp]
+                self.pwm_msg.data = [0,0,0,0, temp*self.init_dir[4], temp*self.init_dir[5], temp*self.init_dir[6], temp*self.init_dir[7]]
                 print("Encoder angles:-", self.enc_data, end = "       ") 
                 print("Mode =", self.mode, end = "      ")
                 print("All wheels -> same direction.")
@@ -220,7 +240,7 @@ class Drive:
                 self.rotinplace = False
                 self.start_time = time.time()
                 temp = int(self.s_arr[self.mode] * self.steering_ctrl_pwm[1])
-                self.pwm_msg.data = [0,0,0,0,temp,temp,-temp,-temp]
+                self.pwm_msg.data = [0,0,0,0, temp*self.init_dir[4], temp*self.init_dir[5], - temp*self.init_dir[6], - temp*self.init_dir[7]]
                 print("Encoder angles:-", self.enc_data, end = "       ") 
                 print("Mode =", self.mode, end = "      ")
                 print("Front and back wheels -> opposite direction.")
@@ -234,28 +254,28 @@ class Drive:
 
             if (self.full_potential_pwm[0] != 0 and abs(self.full_potential_pwm[2]) < 0.2):   #front left wheel
                 temp = int(self.s_arr[self.mode] * self.full_potential_pwm[0])
-                self.pwm_msg.data = [0,0,0,0,temp,0,0,0]
+                self.pwm_msg.data = [0,0,0,0,temp*self.init_dir[4],0,0,0]
                 print("Encoder angles:-", self.enc_data, end = "       ")
                 print("Mode =", self.mode, end = "      ")
                 print("Moving front left wheel.")
 
             elif (self.full_potential_pwm[1] != 0 and abs(self.full_potential_pwm[3]) < 0.2):     #front right wheel
                 temp = int(self.s_arr[self.mode] * self.full_potential_pwm[1])
-                self.pwm_msg.data = [0,0,0,0,0,temp,0,0]
+                self.pwm_msg.data = [0,0,0,0,0,temp*self.init_dir[5],0,0]
                 print("Encoder angles:-", self.enc_data, end = "       ")
                 print("Mode =", self.mode, end = "      ")
                 print("Moving front right wheel.")
                 
             elif (self.full_potential_pwm[2] != 0 and abs(self.full_potential_pwm[0]) < 0.2):     #back left wheel
                 temp = int(self.s_arr[self.mode] * self.full_potential_pwm[2])
-                self.pwm_msg.data = [0,0,0,0,0,0,-temp,0]
+                self.pwm_msg.data = [0,0,0,0,0,0, - temp*self.init_dir[6],0]
                 print("Encoder angles:-", self.enc_data, end = "       ")
                 print("Mode =", self.mode, end = "      ")
                 print("Moving back left wheel.")
 
             elif (self.full_potential_pwm[3] != 0 and abs(self.full_potential_pwm[1]) < 0.2):     #back right wheel
                 temp = int(self.s_arr[self.mode] * self.full_potential_pwm[3])
-                self.pwm_msg.data = [0,0,0,0,0,0,0,-temp]
+                self.pwm_msg.data = [0,0,0,0,0,0,0, - temp*self.init_dir[7]]
                 print("Encoder angles:-", self.enc_data, end = "       ")
                 print("Mode =", self.mode, end = "      ")
                 print("Moving back right wheel.")
@@ -273,12 +293,18 @@ class Drive:
              
             if (self.rotinplace == True):
                 vel = self.d_arr[self.mode] * self.drive_ctrl[1]
-                self.pwm_msg.data = [int(vel), int(vel),int(vel), int(vel), 0,0,0,0]
+                self.pwm_msg.data = [int(vel)*self.init_dir[0], int(vel)*self.init_dir[1],int(vel)*self.init_dir[2], int(vel)*self.init_dir[3], 0,0,0,0]
                 if (self.print_ctrl == 0):    #printing only at certain intervals, to prevent the screen from being filed with data   #print_ctrl is being incremented in main() every time
                     print("Rotation speed =", int(vel))
             else:
-                omega = -self.d_arr[self.mode] * self.drive_ctrl[1]
-                velocity = -self.d_arr[self.mode] * self.drive_ctrl[0]
+
+                if(self.state == False):
+                    velocity = -self.d_arr[self.mode] * self.drive_ctrl[1]
+                    omega = -self.d_arr[self.mode] * self.drive_ctrl[0]
+                else:
+                    velocity = self.autonomous_vel
+                    omega = self.autonomous_omega
+            
 
                 avg_velocity, avg_omega = 0, 0
                 if(self.vel_prev.full() and self.omega_prev.full()):
@@ -304,10 +330,10 @@ class Drive:
                 print()
 
                 #self.pwm_msg.data = [int(avg_velocity-avg_omega), int(avg_velocity+avg_omega), int(avg_velocity-avg_omega), int(avg_velocity+avg_omega), 0,0,0,0]
-                self.pwm_msg.data[0] = int(-avg_velocity+avg_omega)
-                self.pwm_msg.data[1] = int(-avg_velocity-avg_omega)
-                self.pwm_msg.data[2] = int(avg_velocity-avg_omega)
-                self.pwm_msg.data[3] = -int(-avg_velocity-avg_omega)
+                self.pwm_msg.data[0] = int(-avg_velocity+avg_omega)*self.init_dir[0]
+                self.pwm_msg.data[1] = int(-avg_velocity-avg_omega)*self.init_dir[1]
+                self.pwm_msg.data[2] = int(-avg_velocity+avg_omega)*self.init_dir[2]
+                self.pwm_msg.data[3] = int(-avg_velocity-avg_omega)*self.init_dir[3]
             
             #standard code
 
@@ -340,7 +366,7 @@ class Drive:
                     else:
                         pwm[i] = 0
 
-                self.pwm_msg.data = [0,0,0,0,pwm[0],pwm[1],pwm[2],pwm[3]]
+                self.pwm_msg.data = [0,0,0,0, pwm[0]*self.init_dir[4], pwm[1]*self.init_dir[5], pwm[2]*self.init_dir[6], pwm[3]*self.init_dir[7]]
 
                 #standard code
                 rate = rospy.Rate(10)
@@ -365,7 +391,7 @@ class Drive:
                     else:
                         pwm[i] = 0
 
-                self.pwm_msg.data = [0,0,0,0,pwm[0],pwm[1],pwm[2],pwm[3]]
+                self.pwm_msg.data = [0,0,0,0, pwm[0]*self.init_dir[4], pwm[1]*self.init_dir[5], pwm[2]*self.init_dir[6], pwm[3]*self.init_dir[7]]
 
                 rate = rospy.Rate(10)
                 rate.sleep()
