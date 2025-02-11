@@ -1,1 +1,6 @@
-/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_Goal.lisp
+(cl:in-package navigation2-msg)
+(cl:export '(BEARING-VAL
+          BEARING
+          DISTANCE-VAL
+          DISTANCE
+))

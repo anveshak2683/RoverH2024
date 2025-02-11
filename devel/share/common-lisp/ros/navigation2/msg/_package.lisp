@@ -1,1 +1,23 @@
-/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package.lisp
+(cl:defpackage navigation2-msg
+  (:use )
+  (:export
+   "<ENC_DIST>"
+   "ENC_DIST"
+   "<GOAL>"
+   "GOAL"
+   "<PLANNER_STATE>"
+   "PLANNER_STATE"
+   "<AUTO>"
+   "AUTO"
+   "<DETECTION>"
+   "DETECTION"
+   "<ENC_FEED>"
+   "ENC_FEED"
+   "<GPS_DATA>"
+   "GPS_DATA"
+   "<IMU_ANGLE>"
+   "IMU_ANGLE"
+   "<RED>"
+   "RED"
+  ))
+

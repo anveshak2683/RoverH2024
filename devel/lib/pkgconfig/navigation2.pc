@@ -1,1 +1,8 @@
-/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/lib/pkgconfig/navigation2.pc
+prefix=/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2
+
+Name: navigation2
+Description: Description of navigation2
+Version: 0.0.0
+Cflags: -I/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/include
+Libs: -L${prefix}/lib 
+Requires: 

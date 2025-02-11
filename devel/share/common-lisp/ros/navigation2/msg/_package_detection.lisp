@@ -1,1 +1,6 @@
-/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_detection.lisp
+(cl:in-package navigation2-msg)
+(cl:export '(COLOR-VAL
+          COLOR
+          DEPTH-VAL
+          DEPTH
+))

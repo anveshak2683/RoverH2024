@@ -1,1 +1,4 @@
-/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_Planner_state.lisp
+(cl:in-package navigation2-msg)
+(cl:export '(STATUS-VAL
+          STATUS
+))

@@ -1,1 +1,8 @@
-/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/common-lisp/ros/navigation2/msg/_package_imu_angle.lisp
+(cl:in-package navigation2-msg)
+(cl:export '(ROLL-VAL
+          ROLL
+          PITCH-VAL
+          PITCH
+          YAW-VAL
+          YAW
+))

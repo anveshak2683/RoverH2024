@@ -1,1 +1,4 @@
-/media/nvidia/galileo/home/nvidia/galileo2024/devel/.private/navigation2/share/navigation2/cmake/navigation2-msg-paths.cmake
+# generated from genmsg/cmake/pkg-msg-paths.cmake.develspace.in
+
+set(navigation2_MSG_INCLUDE_DIRS "/media/nvidia/galileo/home/nvidia/galileo2024/src/navigation2/msg")
+set(navigation2_MSG_DEPENDENCIES std_msgs)
