@@ -11,7 +11,7 @@ The code is divided into:
 * Navigation ([/src/navigation2/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/navigation2/scripts)))
 * Arm ([/src/arm2/](https://github.com/anveshak2683/RoverH2024/tree/main/src/arm2/)) 
 * IK ([/src/inverse_kinematics/](https://github.com/anveshak2683/RoverH2024/tree/main/src/inverse_kinematics/))
-
+* Juniors Autonomous ([/src/juniors_autonomous/scripts](https://github.com/anveshak2683/RoverH2024/tree/main/src/juniors_autonomous))
 Tokens
 ------
 
